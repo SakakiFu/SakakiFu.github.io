@@ -14,7 +14,6 @@
   <!-- 共用 CSS -->
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* 頁面頂部導航導覽列 */
     .top-nav {
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
@@ -26,6 +25,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
+      flex-wrap: wrap;
     }
     .nav-btn {
       text-decoration: none;
@@ -43,6 +43,7 @@
       color: var(--primary);
       background: var(--primary-light);
     }
+    
     .summary-box {
       background: #fdf4ff;
       border: 1px solid #f0abfc;
@@ -79,6 +80,7 @@
     .summary-item i {
       color: #c026d3;
     }
+
   </style>
 </head>
 <body>
@@ -87,17 +89,17 @@
   <nav class="top-nav">
     <a href="index.html" class="nav-btn"><i class="fa-solid fa-compass"></i> せーはす Plus 外景篇</a>
     <a href="prayer.html" class="nav-btn active"><i class="fa-solid fa-cake-candles"></i> 劇場版祈願 蓮ノ三連華篇</a>
+    <a href="sehasu105.html" class="nav-btn"><i class="fa-solid fa-map-location-dot"></i> せーはす 105 外景聖地篇</a>
   </nav>
 
   <header>
     <div class="header-badge">Love Live! Hasunosora</div>
     <h1>ブルパ開催！映画大入り祈願！</h1>
-    <p class="header-desc">
-      電影《Bloom Garden Party》上映祈願外景完全指南：蓮ノ三連華（102期三年生組）文藝甜點咖啡廳 3S 真情對談。
-    </p>
+    <p class="header-desc">電影《Bloom Garden Party》上映祈願外景完全指南：蓮ノ三連華（102期三年生組）文藝甜點咖啡廳 3S 真情對談。</p>
   </header>
 
   <div class="container">
+    
     <!-- 1-12 集棚拍精簡摘要收納盒 -->
     <div class="summary-box">
       <h3><i class="fa-solid fa-clapperboard"></i> #1～#12 棚拍企劃回精簡速覽</h3>
@@ -114,9 +116,9 @@
     </div>
 
     <div class="notice-bar">
-      <i class="fa-solid fa-utensils text-pink-600"></i>
+      <i class="fa-solid fa-bolt text-pink-600"></i>
       <div>
-        <strong>外景用餐精華（#13 & #14）：</strong>蓮之三連華三人邊吃布丁與甜點邊談心，點選左側任意時間按鈕，影片將<strong>立刻就地載入並跳轉至該秒數播放</strong>！
+        <strong>極速播放模式：</strong>點選左側任意時間軸按鈕，右側影片會<strong>立刻就地生成播放器並跳轉至該秒數播放</strong>！
       </div>
     </div>
 
@@ -125,7 +127,7 @@
   </div>
 
   <footer>
-    <p>© 蓮ノ空女学院スクールアイドルクラブ ｜ 映画大入り祈願！聖地巡禮指南</p>
+    <p>© 蓮ノ空女学院スクールアイドルクラブ ｜ 聖地巡禮指南</p>
   </footer>
 
   <!-- 1. YouTube 官方 IFrame API -->

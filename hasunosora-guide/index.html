@@ -25,6 +25,7 @@
       position: sticky;
       top: 0;
       z-index: 50;
+      flex-wrap: wrap;
     }
     .nav-btn {
       text-decoration: none;
@@ -42,6 +43,7 @@
       color: var(--primary);
       background: var(--primary-light);
     }
+    
   </style>
 </head>
 <body>
@@ -50,17 +52,17 @@
   <nav class="top-nav">
     <a href="index.html" class="nav-btn active"><i class="fa-solid fa-compass"></i> せーはす Plus 外景篇</a>
     <a href="prayer.html" class="nav-btn"><i class="fa-solid fa-cake-candles"></i> 劇場版祈願 蓮ノ三連華篇</a>
+    <a href="sehasu105.html" class="nav-btn"><i class="fa-solid fa-map-location-dot"></i> せーはす 105 外景聖地篇</a>
   </nav>
 
   <header>
     <div class="header-badge">Love Live! Hasunosora</div>
     <h1>せーので！はすのそら！Plus</h1>
-    <p class="header-desc">
-      外景聖地巡禮 ＆ 同款美饌完全指南（模組化架構・極速按需載入與秒級跳轉）。
-    </p>
+    <p class="header-desc">外景聖地巡禮 ＆ 同款美饌完全指南（模組化架構・極速按需載入與秒級跳轉）。</p>
   </header>
 
   <div class="container">
+    
     <div class="notice-bar">
       <i class="fa-solid fa-bolt text-pink-600"></i>
       <div>
@@ -73,12 +75,12 @@
   </div>
 
   <footer>
-    <p>© 蓮ノ空女学院スクールアイドルクラブ ｜ せーはす Plus 聖地巡禮指南</p>
+    <p>© 蓮ノ空女学院スクールアイドルクラブ ｜ 聖地巡禮指南</p>
   </footer>
 
   <!-- 1. YouTube 官方 IFrame API -->
   <script src="https://www.youtube.com/iframe_api"></script>
-  <!-- 2. 當前頁面的專屬資料檔 -->
+  <!-- 2. 本頁專屬資料檔 -->
   <script src="js/data-sehasu-plus.js"></script>
   <!-- 3. 共用核心控制與渲染引擎 -->
   <script src="js/app.js"></script>
