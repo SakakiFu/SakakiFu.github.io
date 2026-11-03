@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蓮ノ空「せーはす Plus」外景與美食完全指南</title>
+  
+  <!-- 字體與圖示 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- 共用 CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-badge">Love Live! Hasunosora</div>
+    <h1>せーので！はすのそら！Plus</h1>
+    <p class="header-desc">
+      外景聖地巡禮 ＆ 同款美饌完全指南（模組化架構・極速按需載入與秒級跳轉）。
+    </p>
+  </header>
+
+  <div class="container">
+    <div class="notice-bar">
+      <i class="fa-solid fa-bolt text-pink-600"></i>
+      <div>
+        <strong>極速播放模式：</strong>點選左側任意時間軸按鈕，右側影片會<strong>立刻就地生成播放器並跳轉至該秒數播放</strong>！
+      </div>
+    </div>
+
+    <!-- 卡片掛載容器 -->
+    <div class="episodes-grid" id="episodesContainer"></div>
+  </div>
+
+  <footer>
+    <p>© 蓮ノ空女学院スクールアイドルクラブ ｜ せーはす Plus 聖地巡禮指南</p>
+  </footer>
+
+  <!-- 1. YouTube 官方 IFrame API -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <!-- 2. 當前頁面的專屬資料檔 -->
+  <script src="js/data-sehasu-plus.js"></script>
+  <!-- 3. 共用核心控制與渲染引擎 -->
+  <script src="js/app.js"></script>
+  
+  <!-- 4. 啟動渲染 -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderEpisodes(sehasuPlusData);
+    });
+  </script>
+</body>
+</html>
