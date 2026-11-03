@@ -1,30 +1,22 @@
-# 蓮ノ空「せーはす Plus」外景與美食完全指南
+# 蓮ノ空 聖地巡禮與外景美食完全指南
 
-專為《蓮ノ空女学院スクールアイドルクラブ》聖地巡禮與外景美食打造的互動導覽網站。
+專為《蓮ノ空女学院スクールアイドルクラブ》打造的多頁面互動導覽網站。
 
 ## 目錄結構
 ```
 hasunosora-guide/
-├── index.html               # 主頁面（せーはす Plus）
+├── index.html               # 頁面一：せーはす Plus 外景篇（全 11 集）
+├── prayer.html              # 頁面二：劇場版大賣祈願 蓮ノ三連華外景甜點篇（#1~#12 精簡 + #13 & #14 完整）
 ├── css/
-│   └── style.css            # 全站共用主題樣式
+│   └── style.css            # 全站共用主題樣式表（支援 RWD 響應式排版）
 ├── js/
 │   ├── app.js               # 核心播放引擎與卡片渲染控制器（共用）
-│   └── data-sehasu-plus.js  # 《せーはす Plus》11 集完整資料
+│   ├── data-sehasu-plus.js  # 《せーはす Plus》11 集資料檔
+│   └── data-movie-prayer.js # 《劇場版大賣祈願》外景美食資料檔
 └── README.md                # 專案說明文件
 ```
 
-## 未來擴充新頁面方式（只需 30 秒）
-1. 複製 `js/data-sehasu-plus.js` 為新檔（例如 `js/data-link-live.js`），修改裡面的資料。
-2. 複製 `index.html` 為新頁面（例如 `link-live.html`）。
-3. 將新頁面底部的資料引入替換為：
-   ```html
-   <script src="js/data-link-live.js"></script>
-   <script src="js/app.js"></script>
-   <script>
-     document.addEventListener('DOMContentLoaded', () => {
-       renderEpisodes(linkLiveCustomData);
-     });
-   </script>
-   ```
-核心播放器與排版邏輯會自動接手處理，乾淨俐落！
+## 功能特點
+1. **極速按需載入（Facade）**：初次進站只載入輕量封面，點擊時間軸或播放才即時建立播放器，解決多 iframe 卡頓與行動端 Error 153。
+2. **秒級跳轉**：點選左側任意時間碼或金色「開吃前 5 秒」標籤，右側影片即刻跳轉對應秒數並開播。
+3. **頂部導航**：可在 `index.html` 與 `prayer.html` 雙頁面之間無縫切換。
