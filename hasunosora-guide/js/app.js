@@ -9,10 +9,7 @@
 const NAV_ITEMS = [
   { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇', short: 'Plus 外景' },
   { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇', short: '祈願三連華' },
-<<<<<<< HEAD
   { key: 'sehasu104', href: 'sehasu104.html', icon: 'fa-torii-gate',      label: 'せーはす 104 外景聖地篇', short: '104 外景' },
-=======
->>>>>>> 02a00e64740357eac8d35e35c24ab108ad041f9a
   { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105 外景' }
 ];
 
@@ -63,7 +60,6 @@ function buildDock() {
     const btn = e.currentTarget;
     btn.setAttribute('aria-label', mini ? '放大播放器' : '縮小播放器');
     btn.innerHTML = `<i class="fa-solid ${mini ? 'fa-expand' : 'fa-compress'}"></i>`;
-<<<<<<< HEAD
   });
   dock.querySelector('#dockClose').addEventListener('click', closeDock);
   dock.querySelector('#dockLocate').addEventListener('click', () => {
@@ -71,15 +67,6 @@ function buildDock() {
                (current && document.getElementById(current.ep.id));
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
-=======
-  });
-  dock.querySelector('#dockClose').addEventListener('click', closeDock);
-  dock.querySelector('#dockLocate').addEventListener('click', () => {
-    const el = document.querySelector('.timeline-item.is-playing') ||
-               (current && document.getElementById(current.ep.id));
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
->>>>>>> 02a00e64740357eac8d35e35c24ab108ad041f9a
 
   // 依播放器實際高度替頁面底部留白，避免內容被遮住
   if (window.ResizeObserver) {
@@ -190,15 +177,10 @@ document.addEventListener('click', e => {
 
 /* ---------- 渲染 ---------- */
 function renderEpisode(ep) {
-<<<<<<< HEAD
   // 地點：新格式 locations: [...]，舊格式 location: {...} 仍相容
   const locs = ep.locations || (ep.location ? [ep.location] : []);
   const noVideo = !ep.videoId;
   const seekAttrs = sec => noVideo ? 'disabled' : `data-seek data-ep="${esc(ep.id)}" data-sec="${sec}"`;
-=======
-  const loc = ep.location || {};
-  const seekAttrs = sec => `data-seek data-ep="${esc(ep.id)}" data-sec="${sec}"`;
->>>>>>> 02a00e64740357eac8d35e35c24ab108ad041f9a
   const hasEating = ep.timeline.some(t => t.isEating);
   const foods = ep.foods || [];
 
@@ -250,17 +232,7 @@ function renderEpisode(ep) {
     </div>
     <div class="card-body">
       <div class="info-pane">
-<<<<<<< HEAD
         ${watch}
-=======
-        <button type="button" class="watch-btn" ${seekAttrs(0)} aria-label="從頭播放：${esc(ep.title)}">
-          <span class="watch-thumb">
-            <img src="https://img.youtube.com/vi/${esc(ep.videoId)}/hqdefault.jpg" alt="" loading="lazy">
-            <span class="watch-play"><i class="fa-solid fa-play"></i></span>
-          </span>
-          <span class="watch-text"><strong>從頭播放</strong><small>影片固定在畫面下方，邊滑邊看</small></span>
-        </button>
->>>>>>> 02a00e64740357eac8d35e35c24ab108ad041f9a
         <div class="location-box">
           <div class="loc-label"><i class="fa-solid fa-location-dot"></i> 外景拍攝地點</div>
           ${locRows}
