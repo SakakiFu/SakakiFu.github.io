@@ -1,105 +1,183 @@
-/* 蓮ノ空 聖地巡禮指南：共用播放控制與渲染引擎
+/* 蓮ノ空 聖地巡禮指南：共用引擎
  * 使用方式（各頁 HTML）：initPage({ active: 'plus', data: sehasuPlusData })
  * 載入順序：資料檔 → app.js → YouTube iframe_api（app.js 必須先定義回呼）
+ *
+ * 播放設計：全頁只有「一個」固定在畫面底部的播放器（dock），
+ * 點任何一集的時間碼都由它播放，所以邊滑動、邊切換集數都不會中斷。
  */
 
 const NAV_ITEMS = [
-  { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇' },
-  { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇' },
-  { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇' }
+  { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇', short: 'Plus 外景' },
+  { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇', short: '祈願三連華' },
+  { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105 外景' }
 ];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-// "12:25" 或 "1:02:03" → 秒數（資料若沒寫 sec 就自動換算）
+// "12:25" 或 "1:02:03" → 秒數（資料沒寫 sec 時自動換算）
 const toSec = t => String(t).split(':').map(Number).reduce((a, n) => a * 60 + n, 0);
+const secOf = t => t.sec ?? toSec(t.time);
 
-/* ---------- 播放器 ---------- */
-const players = {};              // epId -> { ready, pendingSec, player, fallback }
-const apiQueue = [];
+/* ---------- 固定播放器（dock） ---------- */
+const EPISODES = {};                 // id -> 集數資料
+let dock = null;
+let current = null;                  // { ep }：目前載入的集數
+let ytPlayer = null, ytReady = false, pending = null, initial = null;
+let fallbackIframe = null, pollTimer = null, lastMark = null;
 let apiReady = !!(window.YT && window.YT.Player);
+const apiQueue = [];
 
-// 只定義一次：API 載入完成時，依序建立所有排隊中的播放器
+// 只定義一次：API 載入完成時，建立排隊中的播放器
 window.onYouTubeIframeAPIReady = () => {
   apiReady = true;
   apiQueue.splice(0).forEach(fn => fn());
 };
 
 const embedSrc = (videoId, sec) =>
-  `https://www.youtube.com/embed/${videoId}?start=${sec}&autoplay=1&rel=0&playsinline=1`;
+  `https://www.youtube.com/embed/${videoId}?start=${Math.floor(sec)}&autoplay=1&rel=0&playsinline=1`;
 
-function pauseOthers(currentId) {
-  Object.keys(players).forEach(id => {
-    const st = players[id];
-    if (id !== currentId && st.ready && st.player && typeof st.player.pauseVideo === 'function') {
-      st.player.pauseVideo();
-    }
+function buildDock() {
+  if (dock) return dock;
+  dock = document.createElement('section');
+  dock.className = 'dock';
+  dock.setAttribute('aria-label', '影片播放器');
+  dock.innerHTML = `
+    <div class="dock-video"><div id="dock-player"></div></div>
+    <div class="dock-bar">
+      <div class="dock-title" id="dockTitle"></div>
+      <div class="dock-actions">
+        <button type="button" class="dock-btn" id="dockLocate" aria-label="定位到目前播放的時間軸" title="定位目前播放位置"><i class="fa-solid fa-location-crosshairs"></i></button>
+        <button type="button" class="dock-btn" id="dockToggle" aria-label="縮小播放器" title="縮小 / 放大"><i class="fa-solid fa-compress"></i></button>
+        <button type="button" class="dock-btn" id="dockClose" aria-label="關閉播放器" title="關閉"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>`;
+  document.body.appendChild(dock);
+
+  dock.querySelector('#dockToggle').addEventListener('click', e => {
+    const mini = dock.classList.toggle('is-mini');
+    const btn = e.currentTarget;
+    btn.setAttribute('aria-label', mini ? '放大播放器' : '縮小播放器');
+    btn.innerHTML = `<i class="fa-solid ${mini ? 'fa-expand' : 'fa-compress'}"></i>`;
   });
+  dock.querySelector('#dockClose').addEventListener('click', closeDock);
+  dock.querySelector('#dockLocate').addEventListener('click', () => {
+    const el = document.querySelector('.timeline-item.is-playing') ||
+               (current && document.getElementById(current.ep.id));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  // 依播放器實際高度替頁面底部留白，避免內容被遮住
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => {
+      const h = dock.classList.contains('is-open') ? dock.offsetHeight : 0;
+      document.documentElement.style.setProperty('--dock-h', h + 'px');
+    }).observe(dock);
+  }
+  return dock;
 }
 
-function seekTo(epId, videoId, sec) {
-  const viewport = document.getElementById(`viewport-${epId}`);
-  if (!viewport) return;
-  pauseOthers(epId);
+function closeDock() {
+  if (ytPlayer && ytReady) ytPlayer.pauseVideo();
+  if (fallbackIframe) fallbackIframe.src = 'about:blank';
+  dock.classList.remove('is-open');
+  document.documentElement.style.setProperty('--dock-h', '0px');
+  clearInterval(pollTimer); pollTimer = null;
+  setPlaying(null, -1);
+  current = null;
+}
 
-  const st = players[epId];
-  if (st) {
-    if (st.fallback) {
-      viewport.querySelector('iframe').src = embedSrc(videoId, sec);
-    } else if (st.ready) {
-      st.player.seekTo(sec, true);
-      st.player.playVideo();
-    } else {
-      st.pendingSec = sec;       // 播放器還沒好：只更新目標秒數，不重建
-    }
+function seekTo(epId, sec) {
+  const ep = EPISODES[epId];
+  if (!ep) return;
+  buildDock();
+  dock.classList.add('is-open');
+  document.getElementById('dockTitle').textContent = `${ep.epNum}｜${ep.title}`;
+
+  const sameVideo = !!current && current.ep.videoId === ep.videoId;
+  current = { ep };
+  setPlaying(ep.id, idxAt(ep, sec));
+  if (!pollTimer) pollTimer = setInterval(updatePlaying, 1000);
+
+  if (fallbackIframe) { fallbackIframe.src = embedSrc(ep.videoId, sec); return; }
+
+  if (ytPlayer && ytReady) {
+    if (sameVideo) { ytPlayer.seekTo(sec, true); ytPlayer.playVideo(); }
+    else ytPlayer.loadVideoById({ videoId: ep.videoId, startSeconds: sec });
     return;
   }
 
-  viewport.innerHTML = `<div id="yt-player-${epId}"></div>`;
-  const state = players[epId] = { ready: false, pendingSec: sec, player: null, fallback: false };
-  let created = false;
+  pending = { videoId: ep.videoId, sec };
+  if (ytPlayer) return;              // 已建立、尚未 ready：onReady 會處理 pending
 
+  let created = false;
   const create = () => {
     if (created) return;
     created = true;
-    state.player = new YT.Player(`yt-player-${epId}`, {
-      videoId,
-      playerVars: { start: sec, autoplay: 1, playsinline: 1, rel: 0 },
+    initial = { ...pending };
+    ytPlayer = new YT.Player('dock-player', {
+      videoId: initial.videoId,
+      playerVars: { start: Math.floor(initial.sec), autoplay: 1, playsinline: 1, rel: 0 },
       events: {
         onReady: e => {
-          state.ready = true;
-          e.target.seekTo(state.pendingSec, true);
-          e.target.playVideo();
+          ytReady = true;
+          // 載入期間若又點了別處，補跳過去
+          if (pending && (pending.videoId !== initial.videoId || pending.sec !== initial.sec)) {
+            e.target.loadVideoById({ videoId: pending.videoId, startSeconds: pending.sec });
+          }
+          pending = null;
         }
       }
     });
   };
 
   if (apiReady) {
-    create();
+    create();                        // 在點擊事件內同步建立，行動裝置才允許自動播放
   } else {
     apiQueue.push(create);
-    // 若 5 秒後 API 仍未載入（被擋或網路問題），改用一般嵌入
+    // 5 秒後 API 仍未載入（被擋或網路問題）：改用一般嵌入
     setTimeout(() => {
       if (created) return;
       created = true;
-      state.fallback = true;
-      viewport.innerHTML = `<iframe src="${embedSrc(videoId, state.pendingSec)}" title="YouTube 影片" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      const holder = dock.querySelector('.dock-video');
+      holder.innerHTML = `<iframe src="${embedSrc(pending.videoId, pending.sec)}" title="YouTube 影片" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+      fallbackIframe = holder.querySelector('iframe');
     }, 5000);
   }
 }
 
-// 事件委派：所有 [data-seek] 元素（時間碼按鈕、影片封面）
+// 目前播放位置 → 對應的時間軸項目（取「開始時間 ≤ 現在」中最後一筆）
+function idxAt(ep, t) {
+  let idx = -1, best = -1;
+  ep.timeline.forEach((x, i) => { const s = secOf(x); if (s <= t + 0.5 && s >= best) { best = s; idx = i; } });
+  return idx;
+}
+
+function updatePlaying() {
+  if (!current || !ytReady || !ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
+  setPlaying(current.ep.id, idxAt(current.ep, ytPlayer.getCurrentTime()));
+}
+
+function setPlaying(epId, idx) {
+  const key = `${epId}:${idx}`;
+  if (key === lastMark) return;
+  lastMark = key;
+  document.querySelectorAll('.timeline-item.is-playing').forEach(el => el.classList.remove('is-playing'));
+  if (idx < 0 || !epId) return;
+  const items = document.querySelectorAll(`#${CSS.escape(epId)} .timeline-item`);
+  if (items[idx]) items[idx].classList.add('is-playing');
+}
+
+// 事件委派：所有 [data-seek] 元素（時間碼按鈕、從頭播放）
 document.addEventListener('click', e => {
   const el = e.target.closest('[data-seek]');
-  if (el) seekTo(el.dataset.ep, el.dataset.vid, Number(el.dataset.sec));
+  if (el) seekTo(el.dataset.ep, Number(el.dataset.sec));
 });
 
 /* ---------- 渲染 ---------- */
 function renderEpisode(ep) {
   const loc = ep.location || {};
-  const seekAttrs = sec => `data-seek data-ep="${esc(ep.id)}" data-vid="${esc(ep.videoId)}" data-sec="${sec}"`;
+  const seekAttrs = sec => `data-seek data-ep="${esc(ep.id)}" data-sec="${sec}"`;
   const hasEating = ep.timeline.some(t => t.isEating);
 
   const mapBtn = loc.mapQuery
@@ -107,7 +185,7 @@ function renderEpisode(ep) {
     : `<span class="loc-unconfirmed"><i class="fa-solid fa-circle-question"></i> 確切拍攝地點未公開，暫無地圖連結</span>`;
 
   const timeline = ep.timeline.map(t => {
-    const sec = t.sec ?? toSec(t.time);
+    const sec = secOf(t);
     const btn = `<button type="button" class="tl-btn" ${seekAttrs(sec)} title="跳轉至 ${esc(t.time)}"><i class="fa-solid fa-play"></i> ${esc(t.time)}</button>`;
     const yt = `<a class="tl-yt" href="https://www.youtube.com/watch?v=${esc(ep.videoId)}&t=${sec}s" target="_blank" rel="noopener" aria-label="在 YouTube 開啟 ${esc(t.time)}" title="在 YouTube 開啟"><i class="fa-brands fa-youtube"></i></a>`;
     if (t.isEating) {
@@ -129,6 +207,13 @@ function renderEpisode(ep) {
     </div>
     <div class="card-body">
       <div class="info-pane">
+        <button type="button" class="watch-btn" ${seekAttrs(0)} aria-label="從頭播放：${esc(ep.title)}">
+          <span class="watch-thumb">
+            <img src="https://img.youtube.com/vi/${esc(ep.videoId)}/hqdefault.jpg" alt="" loading="lazy">
+            <span class="watch-play"><i class="fa-solid fa-play"></i></span>
+          </span>
+          <span class="watch-text"><strong>從頭播放</strong><small>影片固定在畫面下方，邊滑邊看</small></span>
+        </button>
         <div class="location-box">
           <div class="loc-label"><i class="fa-solid fa-location-dot"></i> 外景拍攝地點</div>
           <div class="loc-name">${esc(loc.name)}</div>
@@ -141,21 +226,6 @@ function renderEpisode(ep) {
         <div class="timeline-section">
           <div class="section-title"><i class="fa-regular fa-clock ic-pink"></i> 時間軸（點時間碼跳轉；<i class="fa-brands fa-youtube"></i> 在 YouTube 開啟）</div>
           <div class="timeline-list">${timeline}</div>
-        </div>
-      </div>
-      <div class="player-container">
-        <div class="video-viewport" id="viewport-${esc(ep.id)}">
-          <button type="button" class="video-cover-btn" ${seekAttrs(0)} aria-label="播放：${esc(ep.title)}">
-            <img class="video-cover" src="https://img.youtube.com/vi/${esc(ep.videoId)}/hqdefault.jpg" alt="" loading="lazy">
-            <span class="cover-overlay">
-              <span class="play-icon-box"><i class="fa-solid fa-play"></i></span>
-              <span class="play-tip">點擊載入播放</span>
-            </span>
-          </button>
-        </div>
-        <div class="player-ctrl-bar">
-          <span><i class="fa-brands fa-youtube ic-red"></i> 官方 YouTube 影片</span>
-          <span>點時間碼即開即播</span>
         </div>
       </div>
     </div>
@@ -177,12 +247,17 @@ function initPage({ active, data }) {
   const nav = document.getElementById('siteNav');
   if (nav) {
     nav.innerHTML = NAV_ITEMS.map(n =>
-      `<a class="nav-btn" href="${n.href}"${n.key === active ? ' aria-current="page"' : ''}><i class="fa-solid ${n.icon}"></i> ${n.label}</a>`
+      `<a class="nav-btn" href="${n.href}"${n.key === active ? ' aria-current="page"' : ''}><i class="fa-solid ${n.icon}"></i> <span class="nav-full">${n.label}</span><span class="nav-short">${n.short}</span></a>`
     ).join('');
   }
 
+  // 回顧速覽：手機預設折疊，桌面預設展開
+  const wide = window.matchMedia('(min-width: 901px)').matches;
+  document.querySelectorAll('details.summary-box').forEach(d => { d.open = wide; });
+
   const container = document.getElementById('episodesContainer');
   if (!container || !Array.isArray(data)) return;
+  data.forEach(ep => { EPISODES[ep.id] = ep; });
   container.innerHTML = data.map(renderEpisode).join('');
 
   const toolbar = document.getElementById('toolbar');
@@ -199,4 +274,4 @@ function initPage({ active, data }) {
   }
 }
 
-if (typeof module !== 'undefined') module.exports = { renderEpisode, toSec, esc };
+if (typeof module !== 'undefined') module.exports = { renderEpisode, toSec, esc, idxAt };
