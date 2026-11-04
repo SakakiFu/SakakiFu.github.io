@@ -9,7 +9,7 @@ const moviePrayerData = [
     isRestaurant: true,
     location: {
       name: "東京都內文藝甜點咖啡廳（喫茶店）",
-      mapQuery: "東京 レトロ 喫茶 プリン"
+      mapQuery: null /* 地點未公開 */
     },
     foods: [
       "楡井希実點：昭和風復古硬布丁佐微苦焦糖醬、冰草莓牛奶",
@@ -63,7 +63,7 @@ const moviePrayerData = [
     isRestaurant: true,
     location: {
       name: "東京都內文藝甜點咖啡廳（喫茶店）",
-      mapQuery: "東京 レトロ 喫茶 プリン"
+      mapQuery: null /* 地點未公開 */
     },
     foods: ["延續享用：特製布丁、巧克力蛋糕、抹茶草莓蛋糕與飲品"],
     timeline: [

@@ -9,7 +9,7 @@ const sehasuPlusData = [
     isRestaurant: false,
     location: {
       name: "東京近郊露營場・戶外BBQ設施",
-      mapQuery: "東京 近郊 キャンプ BBQ"
+      mapQuery: null /* 地點未公開 */
     },
     foods: ["挑戰食材：綜合蔬菜拼盤（玉米、南瓜、洋蔥、青椒）"],
     timeline: [
@@ -29,7 +29,7 @@ const sehasuPlusData = [
     isRestaurant: false,
     location: {
       name: "東京近郊露營場・戶外BBQ設施",
-      mapQuery: "東京 近郊 キャンプ BBQ"
+      mapQuery: null /* 地點未公開 */
     },
     foods: ["挑戰食材：調味料（戶外香料ほりにし、白鹽）、綜合海鮮（鮮蝦、文蛤）"],
     timeline: [
@@ -49,7 +49,7 @@ const sehasuPlusData = [
     isRestaurant: false,
     location: {
       name: "東京近郊露營場・戶外BBQ設施",
-      mapQuery: "東京 近郊 キャンプ BBQ"
+      mapQuery: null /* 地點未公開 */
     },
     foods: [
       "炭火現烤綜合蔬菜（烤南瓜、玉米、青椒、洋蔥）",
@@ -340,7 +340,7 @@ const sehasuPlusData = [
         foodTitle: "熔岩起司漢堡排多蜜醬半熟滑蛋蛋包飯",
         text: "開吃前5秒：用刀子劃開蓬鬆蛋包！瀑布般半熟滑蛋覆蓋飽滿厚實的漢堡排" 
       },
-      { time: "09:30", sec: 570, text: "大口狂讚肉質扎實與蛋香濃郁，榆井露出幸福滿滿的笑容" },
+      { time: "09:30", sec: 570, text: "大口狂讚肉質扎實與蛋香濃郁，楡井露出幸福滿滿的笑容" },
       { time: "11:00", sec: 660, text: "邊吃邊談心：聊起後輩們的成長、兩人身為部長的真心話" },
       { time: "15:20", sec: 920, text: "餐後總結：在滿滿的治癒與飽足中為雙部長外景畫下句點" }
     ]
@@ -354,7 +354,7 @@ const sehasuPlusData = [
     isRestaurant: true,
     location: {
       name: "室內保齡球休閒館",
-      mapQuery: "東京 ボウリング場"
+      mapQuery: null /* 地點未公開 */
     },
     foods: ["球館休閒輕食：現炸酥脆金黃起司條（勝者獎勵）"],
     timeline: [
