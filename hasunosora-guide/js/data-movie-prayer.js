@@ -8,8 +8,8 @@ const moviePrayerData = [
     videoId: "oSmqj7fTQLs",
     isRestaurant: true,
     location: {
-      name: "東京都內文藝甜點咖啡廳（喫茶店）",
-      mapQuery: null /* 地點未公開 */
+      name: "中野　Cafe&Restaurant STELLA",
+      mapQuery: "中野　Cafe&Restaurant STELLA"
     },
     foods: [
       "楡井希実點：昭和風復古硬布丁佐微苦焦糖醬、冰草莓牛奶",
@@ -62,8 +62,8 @@ const moviePrayerData = [
     videoId: "5GA-DVUvJ0E",
     isRestaurant: true,
     location: {
-      name: "東京都內文藝甜點咖啡廳（喫茶店）",
-      mapQuery: null /* 地點未公開 */
+      name: "中野　Cafe&Restaurant STELLA",
+      mapQuery: "中野　Cafe&Restaurant STELLA"
     },
     foods: ["延續享用：特製布丁、巧克力蛋糕、抹茶草莓蛋糕與飲品"],
     timeline: [

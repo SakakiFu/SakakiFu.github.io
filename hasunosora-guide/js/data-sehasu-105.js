@@ -68,8 +68,8 @@ const sehasu105Data = [
     videoId: "H5Il8if3i3s",
     isRestaurant: false,
     locations: [
-      { name: "石川縣七尾市・能登島水族館（のとじま水族館）", mapQuery: "石川縣七尾市・能登島水族館（のとじま水族館）" },
-      { name: "金澤 Gamers",      mapQuery: "金澤 Gamers" }
+      { name: "石川縣七尾市・能登島水族館（のとじま水族館）", mapQuery: "のとじま水族館" },
+      { name: "金澤 Gamers",      mapQuery: "ゲーマーズ金沢店" }
     ],
     foods: ["爭奪目標：和倉溫泉旅館會席料理（松・竹・梅 階級）"],
     timeline: [
@@ -135,8 +135,8 @@ const sehasu105Data = [
     videoId: "y8cFFON9U7M",
     isRestaurant: true,
     location: {
-      name: "石川縣七尾市・和倉溫泉 宿守屋寿亭（浜鶴）",
-      mapQuery: "石川縣七尾市・和倉溫泉 宿守屋寿亭（浜鶴）"
+      name: "石川縣七尾市・能登の宿 和倉温泉はまづる",
+      mapQuery: "能登の宿 和倉温泉はまづる"
     },
     foods: [
       "優勝 Mira-Cra Park! 專屬：超巨大豪華刺身船盛（滿鋪當季能登生魚片、甜蝦、鮮魚）",
@@ -204,8 +204,8 @@ const sehasu105Data = [
     videoId: "keMTPcsfrBg",
     isRestaurant: false,
     locations: [
-      { name: "金澤市・妙立寺（忍者寺）", mapQuery: "金澤市・妙立寺（忍者寺）" },
-      { name: "能美市・手取菲許樂園（手取フィッシュランド）",      mapQuery: "能美市・手取菲許樂園（手取フィッシュランド）" }
+      { name: "金澤市・妙立寺（忍者寺）",                 mapQuery: "妙立寺 金沢" },
+      { name: "能美市・手取菲許樂園（手取フィッシュランド）", mapQuery: "手取フィッシュランド" }
     ],
     foods: ["遊樂園散策飲品與點心"],
     timeline: [
