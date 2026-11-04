@@ -67,10 +67,10 @@ const sehasu105Data = [
     cast: "蓮之空全員（105期）",
     videoId: "H5Il8if3i3s",
     isRestaurant: false,
-    location: {
-      name: "石川縣七尾市・能登島水族館（のとじま水族館） ＆ 金澤 Gamers",
-      mapQuery: "のとじま水族館"
-    },
+    locations: [
+      { name: "石川縣七尾市・能登島水族館（のとじま水族館）", mapQuery: "石川縣七尾市・能登島水族館（のとじま水族館）" },
+      { name: "金澤 Gamers",      mapQuery: "金澤 Gamers" }
+    ],
     foods: ["爭奪目標：和倉溫泉旅館會席料理（松・竹・梅 階級）"],
     timeline: [
       { time: "00:00", sec: 0, text: "能登島海邊開場！全員久違來到石川能登，宣布『美味飯爭奪戰』規則" },
@@ -136,7 +136,7 @@ const sehasu105Data = [
     isRestaurant: true,
     location: {
       name: "石川縣七尾市・和倉溫泉 宿守屋寿亭（浜鶴）",
-      mapQuery: "和倉温泉 宿守屋寿亭"
+      mapQuery: "石川縣七尾市・和倉溫泉 宿守屋寿亭（浜鶴）"
     },
     foods: [
       "優勝 Mira-Cra Park! 專屬：超巨大豪華刺身船盛（滿鋪當季能登生魚片、甜蝦、鮮魚）",
@@ -203,10 +203,10 @@ const sehasu105Data = [
     cast: "蓮之空全員（分組：悠閒充電組 ＆ 活躍充電組）",
     videoId: "keMTPcsfrBg",
     isRestaurant: false,
-    location: {
-      name: "金澤市・妙立寺（忍者寺） ＆ 能美市・手取菲許樂園（手取フィッシュランド）",
-      mapQuery: "妙立寺 金沢"
-    },
+    locations: [
+      { name: "金澤市・妙立寺（忍者寺）", mapQuery: "金澤市・妙立寺（忍者寺）" },
+      { name: "能美市・手取菲許樂園（手取フィッシュランド）",      mapQuery: "能美市・手取菲許樂園（手取フィッシュランド）" }
+    ],
     foods: ["遊樂園散策飲品與點心"],
     timeline: [
       { time: "00:00", sec: 0, text: "分組充電旅開場：四人前往犀川開場與前往妙立寺，四人前往手取遊樂園" },
@@ -223,10 +223,10 @@ const sehasu105Data = [
     cast: "蓮之空全員（分組體驗 ＆ 全員大集結）",
     videoId: "jIbPQHp87RU",
     isRestaurant: true,
-    location: {
-      name: "金澤屋珈琲店（金澤城黑門前） ＆ 烏雞庵（烏鶏庵 東山店）",
-      mapQuery: "金澤屋珈琲店"
-    },
+    locations: [
+      { name: "金澤屋珈琲店（金澤城黑門前）", mapQuery: "金澤屋珈琲店" },
+      { name: "烏雞庵（烏鶏庵 東山店）",      mapQuery: "烏鶏庵 東山店 金沢" }
+    ],
     foods: [
       "金澤屋珈琲店：自家烘焙特選黑咖啡、熱焦糖拿鐵",
       "金澤屋甜點與輕食：現烤蘋果塔、栗子塔、抹茶白玉生麩饅頭、熱壓三明治",
