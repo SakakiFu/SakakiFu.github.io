@@ -9,6 +9,7 @@
 const NAV_ITEMS = [
   { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇', short: 'Plus 外景' },
   { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇', short: '祈願三連華' },
+  { key: 'sehasu104', href: 'sehasu104.html', icon: 'fa-torii-gate',      label: 'せーはす 104 外景聖地篇', short: '104 外景' },
   { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105 外景' }
 ];
 
@@ -176,25 +177,49 @@ document.addEventListener('click', e => {
 
 /* ---------- 渲染 ---------- */
 function renderEpisode(ep) {
-  const loc = ep.location || {};
-  const seekAttrs = sec => `data-seek data-ep="${esc(ep.id)}" data-sec="${sec}"`;
+  // 地點：新格式 locations: [...]，舊格式 location: {...} 仍相容
+  const locs = ep.locations || (ep.location ? [ep.location] : []);
+  const noVideo = !ep.videoId;
+  const seekAttrs = sec => noVideo ? 'disabled' : `data-seek data-ep="${esc(ep.id)}" data-sec="${sec}"`;
   const hasEating = ep.timeline.some(t => t.isEating);
+  const foods = ep.foods || [];
 
-  const mapBtn = loc.mapQuery
-    ? `<a class="loc-link-btn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(loc.mapQuery)}" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i> 在 Google Maps 開啟</a>`
-    : `<span class="loc-unconfirmed"><i class="fa-solid fa-circle-question"></i> 確切拍攝地點未公開，暫無地圖連結</span>`;
+  const locRows = locs.map(l => {
+    const map = l.mapQuery
+      ? `<a class="loc-link-btn" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(l.mapQuery)}" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i> Google Maps</a>`
+      : `<span class="loc-unconfirmed"><i class="fa-solid fa-circle-question"></i> 地點未公開，暫無地圖</span>`;
+    return `<div class="loc-row"><span class="loc-name">${esc(l.name)}</span><span class="loc-links">${map}</span></div>`;
+  }).join('');
 
   const timeline = ep.timeline.map(t => {
     const sec = secOf(t);
     const btn = `<button type="button" class="tl-btn" ${seekAttrs(sec)} title="跳轉至 ${esc(t.time)}"><i class="fa-solid fa-play"></i> ${esc(t.time)}</button>`;
-    const yt = `<a class="tl-yt" href="https://www.youtube.com/watch?v=${esc(ep.videoId)}&t=${sec}s" target="_blank" rel="noopener" aria-label="在 YouTube 開啟 ${esc(t.time)}" title="在 YouTube 開啟"><i class="fa-brands fa-youtube"></i></a>`;
+    const yt = noVideo ? '' : `<a class="tl-yt" href="https://www.youtube.com/watch?v=${esc(ep.videoId)}&t=${sec}s" target="_blank" rel="noopener" aria-label="在 YouTube 開啟 ${esc(t.time)}" title="在 YouTube 開啟"><i class="fa-brands fa-youtube"></i></a>`;
+    const low = t.confidence && t.confidence !== 'high'
+      ? `<span class="tl-tag tl-low" title="可信度較低，建議對照影片確認">待確認</span>` : '';
     if (t.isEating) {
       return `<div class="timeline-item is-eating"><div class="tl-left">${btn}${yt}
-        <span class="tl-tag"><i class="fa-solid fa-utensils"></i> 開吃前5秒</span>
+        <span class="tl-tag"><i class="fa-solid fa-utensils"></i> 開吃前5秒</span>${low}
         <div class="tl-body"><span class="tl-eating-food">[${esc(t.foodTitle)}]</span> <span class="tl-text">${esc(t.text)}</span></div></div></div>`;
     }
-    return `<div class="timeline-item"><div class="tl-left">${btn}${yt}<span class="tl-text tl-body">${esc(t.text)}</span></div></div>`;
+    return `<div class="timeline-item"><div class="tl-left">${btn}${yt}${low}<span class="tl-text tl-body">${esc(t.text)}</span></div></div>`;
   }).join('');
+
+  const watch = noVideo
+    ? `<div class="no-video-note"><i class="fa-solid fa-triangle-exclamation"></i> 這集尚未填入影片 ID，暫時無法播放（請填在資料檔的 videoId）</div>`
+    : `<button type="button" class="watch-btn" ${seekAttrs(0)} aria-label="從頭播放：${esc(ep.title)}">
+          <span class="watch-thumb">
+            <img src="https://img.youtube.com/vi/${esc(ep.videoId)}/hqdefault.jpg" alt="" loading="lazy">
+            <span class="watch-play"><i class="fa-solid fa-play"></i></span>
+          </span>
+          <span class="watch-text"><strong>從頭播放</strong><small>影片固定在畫面下方，邊滑邊看</small></span>
+        </button>`;
+
+  const foodBlock = foods.length ? `
+        <div>
+          <div class="section-title"><i class="fa-solid fa-utensils ic-orange"></i> ${ep.isRestaurant ? '同款外食美饌品項' : '現場料理與食材品項'}</div>
+          <div class="food-chips">${foods.map(f => `<span class="food-chip"><i class="fa-solid fa-check"></i> ${esc(f)}</span>`).join('')}</div>
+        </div>` : '';
 
   return `
   <article class="episode-card" id="${esc(ep.id)}" data-has-eating="${hasEating ? 1 : 0}">
@@ -207,22 +232,11 @@ function renderEpisode(ep) {
     </div>
     <div class="card-body">
       <div class="info-pane">
-        <button type="button" class="watch-btn" ${seekAttrs(0)} aria-label="從頭播放：${esc(ep.title)}">
-          <span class="watch-thumb">
-            <img src="https://img.youtube.com/vi/${esc(ep.videoId)}/hqdefault.jpg" alt="" loading="lazy">
-            <span class="watch-play"><i class="fa-solid fa-play"></i></span>
-          </span>
-          <span class="watch-text"><strong>從頭播放</strong><small>影片固定在畫面下方，邊滑邊看</small></span>
-        </button>
+        ${watch}
         <div class="location-box">
           <div class="loc-label"><i class="fa-solid fa-location-dot"></i> 外景拍攝地點</div>
-          <div class="loc-name">${esc(loc.name)}</div>
-          <div class="loc-links">${mapBtn}</div>
-        </div>
-        <div>
-          <div class="section-title"><i class="fa-solid fa-utensils ic-orange"></i> ${ep.isRestaurant ? '同款外食美饌品項' : '現場料理與食材品項'}</div>
-          <div class="food-chips">${ep.foods.map(f => `<span class="food-chip"><i class="fa-solid fa-check"></i> ${esc(f)}</span>`).join('')}</div>
-        </div>
+          ${locRows}
+        </div>${foodBlock}
         <div class="timeline-section">
           <div class="section-title"><i class="fa-regular fa-clock ic-pink"></i> 時間軸（點時間碼跳轉；<i class="fa-brands fa-youtube"></i> 在 YouTube 開啟）</div>
           <div class="timeline-list">${timeline}</div>
