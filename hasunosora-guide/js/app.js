@@ -10,7 +10,8 @@ const NAV_ITEMS = [
   { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇', short: 'Plus 外景' },
   { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇', short: '祈願三連華' },
   { key: 'sehasu104', href: 'sehasu104.html', icon: 'fa-torii-gate',      label: 'せーはす 104 外景聖地篇', short: '104 外景' },
-  { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105 外景' }
+  { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105 外景' },
+  { key: 'map',       href: 'map.html',       icon: 'fa-map',              label: '聖地美食巡禮地圖', short: '巡禮地圖' }
 ];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
@@ -257,13 +258,17 @@ function renderToolbar(data) {
     </label>`;
 }
 
-function initPage({ active, data }) {
+function renderSiteNav(active) {
   const nav = document.getElementById('siteNav');
   if (nav) {
     nav.innerHTML = NAV_ITEMS.map(n =>
       `<a class="nav-btn" href="${n.href}"${n.key === active ? ' aria-current="page"' : ''}><i class="fa-solid ${n.icon}"></i> <span class="nav-full">${n.label}</span><span class="nav-short">${n.short}</span></a>`
     ).join('');
   }
+}
+
+function initPage({ active, data }) {
+  renderSiteNav(active);
 
   // 回顧速覽：手機預設折疊，桌面預設展開
   const wide = window.matchMedia('(min-width: 901px)').matches;
@@ -287,5 +292,23 @@ function initPage({ active, data }) {
     if (target) target.scrollIntoView();
   }
 }
+
+function initMapPage(dataSets) {
+  renderSiteNav('map');
+  return dataSets.map(({ key, series, data }) => ({
+    series,
+    data: data.map(ep => {
+      const mapEpisode = { ...ep, id: `${key}-${ep.id}`, series };
+      EPISODES[mapEpisode.id] = mapEpisode;
+      return mapEpisode;
+    })
+  }));
+}
+
+window.initMapPage = initMapPage;
+window.playMapEpisode = epId => {
+  const ep = EPISODES[epId];
+  if (ep && ep.videoId) seekTo(epId, 0);
+};
 
 if (typeof module !== 'undefined') module.exports = { renderEpisode, toSec, esc, idxAt };

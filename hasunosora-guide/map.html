@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蓮ノ空聖地美食巡禮地圖</title>
+  <meta name="description" content="整合蓮ノ空各系列節目外景景點與同款美食，點選地圖標記即可觀看相關影片。">
+  <meta name="theme-color" content="#ff7eb3">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="top-nav" id="siteNav" aria-label="頁面導覽"></nav>
+
+  <header>
+    <div class="header-badge">Love Live! Hasunosora</div>
+    <h1>聖地美食巡禮地圖</h1>
+    <p class="header-desc">整合各系列外景與同款美食地點。點選標記查看相關集數並播放影片。</p>
+  </header>
+
+  <main class="container map-page">
+    <div class="notice-bar">
+      <i class="fa-solid fa-circle-info ic-pink"></i>
+      <div>粉紅標記為一般外景；金色 🍴 標記為同款美食餐廳。部分未公開地點以約略位置呈現。</div>
+    </div>
+
+    <nav class="map-region-nav" id="mapRegions" aria-label="地圖區域快速切換"></nav>
+    <div class="map-legend" aria-label="地圖標記說明">
+      <span><i class="map-legend-dot map-legend-dot--spot"></i>一般外景</span>
+      <span><i class="map-legend-dot map-legend-dot--food">🍴</i>同款美食餐廳</span>
+      <span><i class="fa-solid fa-circle-question"></i>約略位置</span>
+    </div>
+    <p class="map-status" id="mapStatus" role="status">正在載入地圖與地點資料…</p>
+    <div id="pilgrimageMap" class="pilgrimage-map" aria-label="聖地美食巡禮地圖"></div>
+    <section class="map-selection" id="mapSelection" aria-live="polite">
+      <div class="map-selection-empty">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <p>選擇地圖上的標記，查看外景資訊並播放相關影片。</p>
+      </div>
+    </section>
+    <section class="map-unlocated" id="mapUnlocated" hidden>
+      <h2><i class="fa-solid fa-location-crosshairs"></i> 尚待補充位置資料</h2>
+      <p>以下地點尚無可用座標，請補上地圖座標資料後即可加入地圖。</p>
+      <ul id="mapUnlocatedList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>地圖 © OpenStreetMap contributors。底圖與部分外部服務需連線使用。</p>
+    <p>非官方粉絲整理站，店家資訊可能變動，出發前請以現場與官方公告為準。</p>
+    <p>© 蓮ノ空女学院スクールアイドルクラブ ｜ 聖地巡禮指南</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="js/map-location-coordinates.js"></script>
+  <script src="js/data-sehasu-plus.js"></script>
+  <script src="js/data-movie-prayer.js"></script>
+  <script src="js/data-sehasu-104.js"></script>
+  <script src="js/data-sehasu-105.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/map.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
