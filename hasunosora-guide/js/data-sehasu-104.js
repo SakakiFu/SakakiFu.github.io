@@ -1,7 +1,238 @@
-// 《せーので！はすのそら！104》金澤大外景（#34～#44）資料
-// 來源：Gemini 整理（尚未人工核對）。confidence 非 'high' 的時間碼會在畫面顯示「待確認」。
-// 之後補其他集數：直接在陣列後面接續新增物件即可（videoId 為 watch?v= 後的 11 碼）。
+// 《せーので！はすのそら！104》全外景資料（#5～#10 新入生歓迎会 ＆ #34～#44 金澤大外景）
 const sehasu104Data = [
+  {
+    "id": "ep05",
+    "epNum": "EP 05",
+    "title": "新入生歓迎会① スリーズブーケ編",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈 ＆ 櫻井陽菜）",
+    "videoId": "JRyYuE_0xEs",
+    "isRestaurant": true,
+    "locations": [
+      {
+        "name": "エセルの中庭",
+        "mapQuery": "エセルの中庭"
+      }
+    ],
+    "foods": [
+      "【エセルの中庭】櫻井陽菜：マロンの紅茶、カトルカール（ショコラ味）",
+      "【エセルの中庭】楡井希実：毒りんごの紅茶、カトルカール（ショコラ味）",
+      "【エセルの中庭】花宮初奈：ロータスティ、カトルカール（ショコラ味）"
+    ],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "スリーズブーケ三人抵達エセルの中庭，舉辦新入生歡迎茶會。",
+        "confidence": "high"
+      },
+      {
+        "time": "13:07",
+        "text": "櫻井陽菜喝下第一口栗子茶。",
+        "isEating": true,
+        "foodTitle": "マロンの紅茶",
+        "confidence": "high"
+      },
+      {
+        "time": "13:42",
+        "text": "楡井希実喝下第一口毒蘋果紅茶。",
+        "isEating": true,
+        "foodTitle": "毒りんごの紅茶",
+        "confidence": "high"
+      },
+      {
+        "time": "14:41",
+        "text": "花宮初奈喝下第一口蓮花茶。",
+        "isEating": true,
+        "foodTitle": "ロータスティ",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "ep06",
+    "epNum": "EP 06",
+    "title": "新入生歓迎会② スリーズブーケ編",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈 ＆ 櫻井陽菜）",
+    "videoId": "7nFlR_s1F9c",
+    "isRestaurant": true,
+    "locations": [
+      {
+        "name": "エセルの中庭",
+        "mapQuery": "エセルの中庭"
+      }
+    ],
+    "foods": [
+      "【エセルの中庭】カトルカール（ショコラ味）"
+    ],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "前半部茶會延續，三人一邊喝茶一邊談心交流。",
+        "confidence": "high"
+      },
+      {
+        "time": "02:00",
+        "text": "櫻井陽菜吃下第一口巧克力風味磅蛋糕。",
+        "isEating": true,
+        "foodTitle": "カトルカール（ショコラ味）",
+        "confidence": "high"
+      },
+      {
+        "time": "02:20",
+        "text": "楡井希実與花宮初奈跟著品嚐巧克力磅蛋糕，大讚口感扎實且不會太甜。",
+        "isEating": true,
+        "foodTitle": "カトルカール（ショコラ味）",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "ep07",
+    "epNum": "EP 07",
+    "title": "新入生歓迎会③ DOLLCHESTRA編",
+    "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子 ＆ 葉山風花）",
+    "videoId": "R9qJHbgZFxw",
+    "isRestaurant": true,
+    "locations": [
+      {
+        "name": "福井 望洋楼",
+        "mapQuery": "福井 望洋楼"
+      }
+    ],
+    "foods": [
+      "【福井 望洋楼】葉山風花：福井の旬のお刺身御膳（含ウニ、メバル、ヒラマサ等）",
+      "【福井 望洋楼】佐佐木琴子：セイコ蟹グラタン、天ぷらそば",
+      "【福井 望洋楼】野中ここな：天ぷら盛りそば（150g）"
+    ],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "DOLLCHESTRA 抵達福井望洋楼，舉辦新入生歡迎聚餐。",
+        "confidence": "high"
+      },
+      {
+        "time": "08:45",
+        "text": "葉山風花品嚐第一口海膽刺身。",
+        "isEating": true,
+        "foodTitle": "福井の旬のお刺身御膳（ウニ）",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "ep08",
+    "epNum": "EP 08",
+    "title": "新入生歓迎会④ DOLLCHESTRA編",
+    "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子 ＆ 葉山風花）",
+    "videoId": "MlRutxQ7oTU",
+    "isRestaurant": true,
+    "locations": [
+      {
+        "name": "福井 望洋楼",
+        "mapQuery": "福井 望洋楼"
+      }
+    ],
+    "foods": [
+      "【福井 望洋楼】前菜：鯛の子の煮物",
+      "【福井 望洋楼】天婦羅拼盤：さつまいもの天ぷら"
+    ],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "前半部聚餐延續，三人一邊用餐一邊討論前菜的真實身分。",
+        "confidence": "high"
+      },
+      {
+        "time": "03:42",
+        "text": "佐佐木琴子與葉山風花品嚐前菜鯛魚卵煮物。",
+        "isEating": true,
+        "foodTitle": "鯛の子の煮物",
+        "confidence": "high"
+      },
+      {
+        "time": "06:10",
+        "text": "野中ここな吃下地瓜天婦羅。",
+        "isEating": true,
+        "foodTitle": "さつまいもの天ぷら",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "ep09",
+    "epNum": "EP 09",
+    "title": "新入生歓迎会⑤ みらくらぱーく！編",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな ＆ 来栖りん）",
+    "videoId": "2KLR1wGXDtk",
+    "isRestaurant": true,
+    "locations": [
+      {
+        "name": "スシロー方南町店",
+        "mapQuery": "スシロー方南町店"
+      }
+    ],
+    "foods": [
+      "【スシロー】平日限定サーモン盛り合わせ、エビ、ミニ握り、メロンソーダ"
+    ],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "みらくらぱーく！三人抵達スシロー舉辦新入生歡迎會。",
+        "confidence": "high"
+      },
+      {
+        "time": "03:24",
+        "text": "成員吃下第一貫鮭魚與鮮蝦壽司。",
+        "isEating": true,
+        "foodTitle": "平日限定サーモン盛り合わせ・エビ",
+        "confidence": "high"
+      },
+      {
+        "time": "04:30",
+        "text": "全員舉杯乾杯後開始大啖桌上壽司。",
+        "isEating": true,
+        "foodTitle": "スシロー 握り寿司",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "ep10",
+    "epNum": "EP 10",
+    "title": "新入生歓迎会⑥ みらくらぱーく！編",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな ＆ 来栖りん）",
+    "videoId": "lK8LJ-g_roU",
+    "isRestaurant": true,
+    "locations": [
+      {
+        "name": "スシロー方南町店",
+        "mapQuery": "スシロー方南町店"
+      }
+    ],
+    "foods": [
+      "【スシロー】いちごのモンブランパフェ、ラーメン"
+    ],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "後半部用餐延續，三人邊吃壽司邊聊日常睡眠與生活習慣。",
+        "confidence": "high"
+      },
+      {
+        "time": "03:55",
+        "text": "成員吃下第一口草莓蒙布朗聖代。",
+        "isEating": true,
+        "foodTitle": "いちごのモンブランパフェ",
+        "confidence": "high"
+      },
+      {
+        "time": "11:35",
+        "text": "加點的拉麵送達並開始食用。",
+        "isEating": true,
+        "foodTitle": "ラーメン",
+        "confidence": "high"
+      }
+    ]
+  },
   {
     "id": "ep34",
     "epNum": "EP 34",

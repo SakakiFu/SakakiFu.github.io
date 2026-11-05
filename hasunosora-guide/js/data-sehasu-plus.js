@@ -181,8 +181,8 @@ const sehasuPlusData = [
     videoId: "zSNOZ5InzO8",
     isRestaurant: false,
     location: {
-      name: "VS PARK 運動娛樂場館",
-      mapQuery: "VS PARK"
+      name: "横浜 VS PARK 運動娛樂場館",
+      mapQuery: "VS PARK 横浜ワールドポーターズ店"
     },
     foods: ["運動補給水分與能量飲料"],
     timeline: [
