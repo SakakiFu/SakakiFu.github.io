@@ -9,6 +9,7 @@
 const NAV_ITEMS = [
   { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇', short: 'Plus 外景' },
   { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇', short: '祈願三連華' },
+  { key: 'sehasu103', href: 'sehasu103.html', icon: 'fa-torii-gate',      label: 'せーはす 103 外景聖地篇', short: '103 外景' },
   { key: 'sehasu104', href: 'sehasu104.html', icon: 'fa-torii-gate',      label: 'せーはす 104 外景聖地篇', short: '104 外景' },
   { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105 外景' },
   { key: 'map',       href: 'map.html',       icon: 'fa-map',              label: '聖地美食巡禮地圖', short: '巡禮地圖' }
