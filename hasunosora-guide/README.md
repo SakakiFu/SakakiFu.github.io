@@ -41,6 +41,7 @@ hasunosora-guide/
 │   ├── app.js                 # 導覽列、頁面渲染與共用播放器
 │   ├── data-sehasu-plus.js    # せーはす Plus 集數資料
 │   ├── data-movie-prayer.js   # 劇場版大賣祈願資料
+│   ├── data-sehasu-103.js     # せーはす 103 集數資料
 │   ├── data-sehasu-104.js     # せーはす 104 集數資料
 │   ├── data-sehasu-105.js     # せーはす 105 集數資料
 │   ├── map-location-coordinates.js # 地圖座標與區域資料
@@ -63,6 +64,7 @@ flowchart TD
 
         Plus --> PlusData[data-sehasu-plus.js]
         Prayer --> PrayerData[data-movie-prayer.js]
+        MapScript --> Sehasu103Data[data-sehasu-103.js]
         Sehasu104 --> Sehasu104Data[data-sehasu-104.js]
         Sehasu105 --> Sehasu105Data[data-sehasu-105.js]
 
@@ -90,7 +92,7 @@ flowchart TD
 
 每個 HTML 頁面載入自己的集數資料、共用的 `app.js` 與 `css/style.css`。頁面初始化後由共用程式產生導覽列和集數卡片；播放器則在使用者開始播放時建立。若 YouTube IFrame Player API 無法及時載入，會改用一般 iframe 嵌入播放。
 
-地圖頁載入四份集數資料並沿用 `app.js` 的播放器；Leaflet 顯示 OpenStreetMap 底圖，標記座標維護於 `js/map-location-coordinates.js`。地圖底圖需連線載入，並依 OpenStreetMap 規範標示來源。
+地圖頁載入五份集數資料（包含 せーはす 103）並沿用 `app.js` 的播放器；Leaflet 顯示 OpenStreetMap 底圖，標記座標維護於 `js/map-location-coordinates.js`。地圖底圖需連線載入，並依 OpenStreetMap 規範標示來源。
 
 ## 集數資料維護
 

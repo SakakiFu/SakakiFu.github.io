@@ -9,6 +9,7 @@ const MAP_REGIONS = [
 const SERIES_DATA = [
   { key: 'plus', series: 'せーはす Plus', data: sehasuPlusData },
   { key: 'prayer', series: '劇場版大賣祈願', data: moviePrayerData },
+  { key: 'sehasu103', series: 'せーはす 103', data: sehasu103Data },
   { key: 'sehasu104', series: 'せーはす 104', data: sehasu104Data },
   { key: 'sehasu105', series: 'せーはす 105', data: sehasu105Data }
 ];
@@ -212,7 +213,7 @@ function initPilgrimageMap(dataSets) {
     markerGroup.clearLayers();
     markerGroup.addLayers(visible.map(({ marker }) => marker));
     const bounds = L.latLngBounds(visible.map(({ location }) => [location.lat, location.lng]));
-    if (bounds.isValid()) map.flyToBounds(bounds, { padding: [28, 28], maxZoom: region.id === 'all' ? 5 : region.zoom });
+    if (bounds.isValid()) map.flyToBounds(bounds, { padding: [28, 28], maxZoom: region.id === 'all' ? 5 : 14 });
     else map.flyTo(region.center, region.zoom);
   });
 

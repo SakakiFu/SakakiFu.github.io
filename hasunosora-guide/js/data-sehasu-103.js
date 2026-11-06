@@ -203,8 +203,8 @@ const sehasu103Data = [
     "isRestaurant": true,
     "locations": [
       {
-        "name": "近江町市場（市場各店家、海鮮丼店）",
-        "mapQuery": "近江町市場"
+        "name": "近江町海鮮丼家ひら井 いちば館店",
+        "mapQuery": "近江町海鮮丼家ひら井 いちば館店"
       },
       {
         "name": "グリルオーツカ（Grill Otsuka）",

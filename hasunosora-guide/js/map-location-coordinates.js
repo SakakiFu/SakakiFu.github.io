@@ -44,5 +44,19 @@ const mapLocationCoordinates = [
   { key: "料理手作教室廚房", lat: 35.68, lng: 139.7, region: "kanto", approximate: true },
   { key: "室內保齡球休閒館", lat: 35.69, lng: 139.702, region: "kanto", approximate: true },
   { key: "金澤市大野町海濱", lat: 36.62, lng: 136.61, region: "kanazawa", approximate: true },
-  { key: "大野町醬油藏改造店鋪（畫面及對話未出現明確店名）", lat: 36.62, lng: 136.61, region: "kanazawa", approximate: true }
+  { key: "大野町醬油藏改造店鋪（畫面及對話未出現明確店名）", lat: 36.62, lng: 136.61, region: "kanazawa", approximate: true },
+  { key: "露營場戶外草地（實際地點未確定）", lat: 35.55, lng: 140.1, region: "kanto", approximate: true },
+  { key: "千葉 キャンプ BBQ", lat: 35.55, lng: 140.1, region: "kanto", approximate: true },
+  { key: "近江町海鮮丼家ひら井 いちば館店", lat: 36.5718, lng: 136.6569, region: "kanazawa", approximate: true },
+  { key: "グリルオーツカ", lat: 36.5616, lng: 136.6544, region: "kanazawa", approximate: false },
+  { key: "いっぷくや 近江町市場", lat: 36.571, lng: 136.656, region: "kanazawa", approximate: true },
+  { key: "忍者武器ミュージアム 金沢", lat: 36.5535, lng: 136.6475, region: "kanazawa", approximate: true },
+  { key: "甘納豆かわむら 金沢", lat: 36.554, lng: 136.647, region: "kanazawa", approximate: true },
+  { key: "氷菓子 りつか 金沢", lat: 36.568, lng: 136.65, region: "kanazawa", approximate: true },
+  { key: "卯辰山見晴らし台", lat: 36.575, lng: 136.681, region: "kanazawa", approximate: true },
+  { key: "金沢茶屋", lat: 36.5781, lng: 136.6489, region: "kanazawa", approximate: true },
+  { key: "加賀の薫香 香屋", lat: 36.571, lng: 136.666, region: "kanazawa", approximate: true },
+  { key: "かなざわカタニ", lat: 36.572, lng: 136.668, region: "kanazawa", approximate: true },
+  { key: "かなざわ 宗友", lat: 36.571, lng: 136.667, region: "kanazawa", approximate: true },
+  { key: "新香園 焼肉", lat: 35.68, lng: 139.7, region: "kanto", approximate: true }
 ];
