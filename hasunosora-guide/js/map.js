@@ -29,15 +29,6 @@ function mapRegionFor(lat, lng) {
   return 'other';
 }
 
-function approximateRegionForName(name) {
-  if (/能登|七尾|志賀|羽咋/.test(name)) return { lat: 37.05, lng: 136.92, region: 'noto' };
-  if (/山代|加賀|小松|能美/.test(name)) return { lat: 36.29, lng: 136.35, region: 'kaga' };
-  if (/金澤|金沢|野々市|大野町/.test(name)) return { lat: 36.57, lng: 136.65, region: 'kanazawa' };
-  if (/東京|横浜|江ノ島|銀座|新宿|中野|平和島|關東/.test(name)) return { lat: 35.68, lng: 139.7, region: 'kanto' };
-  if (/福井/.test(name)) return { lat: 36.06, lng: 136.22, region: 'other' };
-  return null;
-}
-
 function locationKey(location) {
   return normalizeMapKey(location.mapQuery || location.name);
 }
@@ -45,16 +36,21 @@ function locationKey(location) {
 function collectMapLocations(dataSets) {
   const coordinates = new Map(mapLocationCoordinates.map(entry => [normalizeMapKey(entry.key), entry]));
   const locations = new Map();
-  const unlocated = [];
+  const unlocated = new Map();
 
   dataSets.forEach(({ series, data }) => data.forEach(ep => {
     const episodeLocations = ep.locations || (ep.location ? [ep.location] : []);
     episodeLocations.forEach(location => {
       const key = locationKey(location);
       const metadata = coordinates.get(key);
-      const fallback = metadata || approximateRegionForName(`${location.name} ${location.mapQuery || ''}`);
+      // 沒有座標資料的地點一律列入「尚待補充」，不再用名稱關鍵字猜區域預設點
+      const fallback = metadata;
       if (!fallback) {
-        unlocated.push({ name: location.name, episode: ep.epNum, series });
+        const pending = unlocated.get(key) || { name: location.name, episodes: [] };
+        if (!pending.episodes.some(item => item.series === series && item.episode === ep.epNum)) {
+          pending.episodes.push({ series, episode: ep.epNum });
+        }
+        unlocated.set(key, pending);
         return;
       }
 
@@ -79,7 +75,7 @@ function collectMapLocations(dataSets) {
     });
   }));
 
-  return { locations: [...locations.values()], unlocated };
+  return { locations: [...locations.values()], unlocated: [...unlocated.values()] };
 }
 
 function markerIcon(isRestaurant, approximate) {
@@ -148,7 +144,7 @@ function renderUnlocatedList(items) {
   const section = document.getElementById('mapUnlocated');
   section.hidden = false;
   document.getElementById('mapUnlocatedList').innerHTML = items.map(item =>
-    `<li>${escapeMapHtml(item.name)} <span>${escapeMapHtml(item.series)}・${escapeMapHtml(item.episode)}</span></li>`
+    `<li>${escapeMapHtml(item.name)} <span>${item.episodes.map(entry => `${escapeMapHtml(entry.series)}・${escapeMapHtml(entry.episode)}`).join('、')}</span></li>`
   ).join('');
 }
 
