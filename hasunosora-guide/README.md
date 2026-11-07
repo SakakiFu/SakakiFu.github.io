@@ -85,14 +85,14 @@ flowchart TD
 
     App --> YouTube[YouTube IFrame Player API]
     App -. API 無法載入時改用 iframe .-> Embed[YouTube 嵌入播放器]
-    Map --> Tiles[OpenStreetMap 底圖]
+    Map --> Tiles[地理院 淡色地圖底圖]
     App --> Maps[Google Maps 地點搜尋連結]
     MapScript --> Maps
 ```
 
 每個 HTML 頁面載入自己的集數資料、共用的 `app.js` 與 `css/style.css`。頁面初始化後由共用程式產生導覽列和集數卡片；播放器則在使用者開始播放時建立。若 YouTube IFrame Player API 無法及時載入，會改用一般 iframe 嵌入播放。
 
-地圖頁載入五份集數資料（包含 せーはす 103）並沿用 `app.js` 的播放器；Leaflet 顯示 OpenStreetMap 底圖，標記座標維護於 `js/map-location-coordinates.js`。地圖底圖需連線載入，並依 OpenStreetMap 規範標示來源。
+地圖頁載入五份集數資料（包含 せーはす 103）並沿用 `app.js` 的播放器；Leaflet 顯示國土地理院「淡色地圖」底圖（僅涵蓋日本），標記座標維護於 `js/map-location-coordinates.js`。地圖底圖需連線載入，並依地理院規範標示來源（「地理院タイル」）。
 
 ## 集數資料維護
 

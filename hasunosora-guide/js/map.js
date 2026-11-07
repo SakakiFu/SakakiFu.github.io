@@ -156,10 +156,13 @@ function initPilgrimageMap(dataSets) {
   }
 
   const { locations, unlocated } = collectMapLocations(dataSets);
-  const map = L.map('pilgrimageMap', { scrollWheelZoom: false }).setView([36.4, 137.9], 5);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  const map = L.map('pilgrimageMap', { scrollWheelZoom: false, minZoom: 5, maxZoom: 19 }).setView([36.4, 137.9], 5);
+  // 底圖：國土地理院「淡色地圖」（僅涵蓋日本；原生圖磚到 18 級，19 級會放大 18 級圖磚）
+  L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', {
+    minZoom: 5,
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    maxNativeZoom: 18,
+    attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">地理院タイル</a>'
   }).addTo(map);
 
   const markerGroup = L.markerClusterGroup({
