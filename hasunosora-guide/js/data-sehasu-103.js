@@ -9,11 +9,16 @@ const sehasu103Data = [
     "isRestaurant": false,
     "locations": [
       {
-        "name": "露營場戶外草地（實際地點未確定）",
-        "mapQuery": null
+        "name": "Sea Front Villa（PalmVillage by Villa & BBQ・千葉房總半島南端）",
+        "mapQuery": "シーフロントヴィラ PalmVillage"
       }
     ],
-    "foods": [],
+    "foods": [
+      "BBQ食材爭奪賽・飲料：紅まどんな、超市果汁、水",
+      "BBQ食材爭奪賽・海鮮：高級海鮮組／超市海鮮組",
+      "BBQ食材爭奪賽・調味料：叙々苑のタレ、ほりにし 等",
+      "BBQ食材爭奪賽・肉類：松阪牛／超市肉"
+    ],
     "timeline": [
       {
         "time": "00:00",
@@ -41,8 +46,8 @@ const sehasu103Data = [
     "isRestaurant": false,
     "locations": [
       {
-        "name": "露營場戶外草地（實際地點未確定）",
-        "mapQuery": null
+        "name": "Sea Front Villa（PalmVillage by Villa & BBQ・千葉房總半島南端）",
+        "mapQuery": "シーフロントヴィラ PalmVillage"
       }
     ],
     "foods": [],
@@ -78,8 +83,8 @@ const sehasu103Data = [
     "isRestaurant": false,
     "locations": [
       {
-        "name": "露營場戶外草地（實際地點未確定）",
-        "mapQuery": null
+        "name": "Sea Front Villa（PalmVillage by Villa & BBQ・千葉房總半島南端）",
+        "mapQuery": "シーフロントヴィラ PalmVillage"
       }
     ],
     "foods": [],
@@ -110,8 +115,8 @@ const sehasu103Data = [
     "isRestaurant": false,
     "locations": [
       {
-        "name": "千葉海濱露營場・戶外烤肉爐台",
-        "mapQuery": "千葉 キャンプ BBQ"
+        "name": "Sea Front Villa（PalmVillage by Villa & BBQ・千葉房總半島南端）",
+        "mapQuery": "シーフロントヴィラ PalmVillage"
       }
     ],
     "foods": [
@@ -274,6 +279,14 @@ const sehasu103Data = [
       {
         "name": "氷菓子 りつか 金沢",
         "mapQuery": "氷菓子 りつか 金沢"
+      },
+      {
+        "name": "牧果実店",
+        "mapQuery": "牧果実店 金沢"
+      },
+      {
+        "name": "主計町茶屋街",
+        "mapQuery": "主計町茶屋街"
       }
     ],
     "foods": [
@@ -330,10 +343,15 @@ const sehasu103Data = [
       {
         "name": "金沢茶屋（割烹旅館料理亭）",
         "mapQuery": "金沢茶屋"
+      },
+      {
+        "name": "菓舗 Kazu Nakashima",
+        "mapQuery": "菓舗 Kazu Nakashima 金沢"
       }
     ],
     "foods": [
-      "【金沢茶屋】金澤傳統會席料理（鴨肉治部煮、旬魚醬油麴燒、當季生魚片盛合）"
+      "【金沢茶屋】金澤傳統會席料理（鴨肉治部煮、旬魚醬油麴燒、當季生魚片盛合）",
+      "【菓舗 Kazu Nakashima】フルーツ大福"
     ],
     "timeline": [
       {
@@ -645,5 +663,174 @@ const sehasu103Data = [
         "confidence": "high"
       }
     ]
+  },
+  {
+    "id": "ep05",
+    "epNum": "EP 05",
+    "title": "運動能力チェック！前半",
+    "cast": "蓮ノ空全員（103期 6名）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "武蔵野の森総合スポーツプラザ",
+        "mapQuery": "武蔵野の森総合スポーツプラザ"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep10",
+    "epNum": "EP 10",
+    "title": "料理力チェック！スリーズブーケ編",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "鶏ももさっぱり塩だれ定食",
+      "きゅうり（揉みきゅうり）",
+      "玉子汁"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep11",
+    "epNum": "EP 11",
+    "title": "料理力チェック！DOLLCHESTRA編",
+    "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "お弁当（ハンバーグ、スパム、サンドイッチ）"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep12",
+    "epNum": "EP 12",
+    "title": "料理力チェック！みらくらぱーく！編",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "プリンセスセット",
+      "雪見だいふく（似顔絵デコレーション）"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep13",
+    "epNum": "EP 13",
+    "title": "Vlog風動画を撮ろう！スリーズブーケ編",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "浅草・飴細工 アメシン 花川戸店",
+        "mapQuery": "アメシン 花川戸店"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep14",
+    "epNum": "EP 14",
+    "title": "Vlog風動画を撮ろう！DOLLCHESTRA編",
+    "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "猫カフェ にゃんくる 蒲田店",
+        "mapQuery": "猫カフェ にゃんくる 蒲田店"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep15",
+    "epNum": "EP 15",
+    "title": "Vlog風動画を撮ろう！みらくらぱーく！編",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "アスレチッタ蒲田（已閉店）",
+        "mapQuery": "アスレチッタ蒲田"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep37",
+    "epNum": "EP 37",
+    "title": "クリスマスっぽいパーティー④",
+    "cast": "蓮ノ空全員（103期 6名）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "持ち寄りグルメ（里仙もなか、マクドナルドのポテト、カールチーズ味、ステラおばさんのクッキー、マルゲリータピザ、ヤンニョムチキン、ケーキ）"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep42",
+    "epNum": "EP 42",
+    "title": "バレンタインクッキング① スリーズブーケ編",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "アップルパイ"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep43",
+    "epNum": "EP 43",
+    "title": "バレンタインクッキング② DOLLCHESTRA編",
+    "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "抹茶クッキー"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep44",
+    "epNum": "EP 44",
+    "title": "バレンタインクッキング③ みらくらぱーく！編",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "ごま団子"
+    ],
+    "timeline": []
   }
 ];

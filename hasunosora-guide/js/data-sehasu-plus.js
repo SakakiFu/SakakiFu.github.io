@@ -36,7 +36,7 @@ const sehasuPlusData = [
       { time: "00:43", sec: 43, text: "90秒撈金魚撈球挑戰（撈取成功獲得高級調味料！）" },
       { time: "02:39", sec: 159, text: "字數限制接龍挑戰（三度挑戰最終因秒數不足飲恨）" },
       { time: "08:36", sec: 516, text: "彈瓶蓋停格挑戰（爭奪海鮮食材）" },
-      { time: "12:15", sec: 735, text: "來栖凜彈瓶蓋名場面：力量過猛直接將瓶蓋轟飛出鏡頭外" },
+      { time: "12:15", sec: 735, text: "来栖りん彈瓶蓋名場面：力量過猛直接將瓶蓋轟飛出鏡頭外" },
       { time: "15:30", sec: 930, text: "三宅美羽最後一投奇蹟壓線停格！成功保住海鮮！" }
     ]
   },
@@ -48,8 +48,8 @@ const sehasuPlusData = [
     videoId: "zDpb_P1UdWk",
     isRestaurant: false,
     location: {
-      name: "東京近郊露營場・戶外BBQ設施",
-      mapQuery: null /* 地點未公開 */
+      name: "SLOTH ROOFTOP BBQ（澀谷）",
+      mapQuery: "SLOTH ROOFTOP BBQ 渋谷"
     },
     foods: [
       "炭火現烤綜合蔬菜（烤南瓜、玉米、青椒、洋蔥）",
@@ -89,7 +89,7 @@ const sehasuPlusData = [
     id: "enoshima1",
     epNum: "EP 04",
     title: "STEP UP ! 旅 江之島水族館篇",
-    cast: "來栖凜 ＆ 進藤天音",
+    cast: "来栖りん ＆ 進藤天音",
     videoId: "6NghpxRDReI",
     isRestaurant: true,
     location: {
@@ -220,7 +220,7 @@ const sehasuPlusData = [
       { time: "09:10", sec: 550, text: "櫻井陽菜裝盤：發揮打工經驗，裝滿炸蝦與必備咖哩" },
       { 
         time: "08:35", 
-        sec: 515, 
+        sec: 515, confidence: "low", 
         isEating: true, 
         foodTitle: "鮮甜清蒸帝王蟹腳與松葉蟹肉",
         text: "開吃前5秒：剪開肥嫩帝王蟹殼，菅叶和大口吸入滿滿鮮甜蟹肉" 
@@ -247,7 +247,7 @@ const sehasuPlusData = [
     id: "enoshima2",
     epNum: "EP 08",
     title: "STEP UP ! 旅 江之島吻仔魚海鮮丼大滿足",
-    cast: "來栖凜 ＆ 進藤天音",
+    cast: "来栖りん ＆ 進藤天音",
     videoId: "cnbLz_BlzcQ",
     isRestaurant: true,
     location: {
@@ -255,7 +255,7 @@ const sehasuPlusData = [
       mapQuery: "しらす問屋 とびっちょ 江の島弁財天仲見世通り店"
     },
     foods: [
-      "來栖凜點：釜揚吻仔魚蔥鮪鮭魚卵丼（釜揚げしらすネギトロいくら丼）",
+      "来栖りん點：釜揚吻仔魚蔥鮪鮭魚卵丼（釜揚げしらすネギトロいくら丼）",
       "進藤天音點：釜揚吻仔魚蔥鮪鮭魚丼（釜揚げしらすネギトロサーモン丼）",
       "合點推薦：究極現烤特大文蛤（究極の焼きハマグリ / 大蒜醬油風味）"
     ],
@@ -353,10 +353,10 @@ const sehasuPlusData = [
     videoId: "PXb8GiCSaCE",
     isRestaurant: true,
     location: {
-      name: "室內保齡球休閒館",
-      mapQuery: null /* 地點未公開 */
+      name: "シブヤボウリング（澀谷，待確認）",
+      mapQuery: "シブヤボウリング 渋谷"
     },
-    foods: ["球館休閒輕食：現炸酥脆金黃起司條（勝者獎勵）"],
+    foods: ["クリームブリュレ（勝利獎勵）", "現炸起司條（賽後獎勵；與另一份資料不一致，待確認）"],
     timeline: [
       { time: "00:00", sec: 0, text: "吃完新宿海鮮 Buffet 精神飽滿，來到保齡球館決一勝負" },
       { time: "03:20", sec: 200, text: "熱身試投：兩人姿勢滿分但球路頻頻洗溝的搞笑開場" },
@@ -372,5 +372,130 @@ const sehasuPlusData = [
       },
       { time: "23:00", sec: 1380, text: "完食心得：如果發財了一定要天天大吃美食！外景圓滿收尾" }
     ]
+  },
+  {
+    "id": "sp_4dx",
+    "epNum": "SP 4DX",
+    "title": "特別編 ブルパを4DXで體驗！！",
+    "cast": "整理中",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "グランドシネマサンシャイン 池袋",
+        "mapQuery": "グランドシネマサンシャイン 池袋"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "sp_kanazawa1",
+    "epNum": "SP 金澤①",
+    "title": "特別編 ラ！フェス開催記念 ようこそ金沢へSP①",
+    "cast": "整理中",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "金沢駅 鼓門",
+        "mapQuery": "金沢駅 鼓門"
+      },
+      {
+        "name": "ひがし茶屋街・茶道 宗友",
+        "mapQuery": "かなざわ 宗友"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "sp_kanazawa2",
+    "epNum": "SP 金澤②",
+    "title": "特別編 ラ！フェス開催記念 ようこそ金沢へSP②",
+    "cast": "整理中",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "かなざわ 美かざり あさの",
+        "mapQuery": "かなざわ 美かざり あさの"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "sp_numazu1",
+    "epNum": "SP 沼津①",
+    "title": "特別編 沼津におじゃましますSP①",
+    "cast": "整理中",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "安田屋旅館（前）",
+        "mapQuery": "安田屋旅館 沼津"
+      },
+      {
+        "name": "あわしまマリンパーク",
+        "mapQuery": "あわしまマリンパーク"
+      },
+      {
+        "name": "レストラン離宮",
+        "mapQuery": "レストラン離宮 淡島"
+      }
+    ],
+    "foods": [
+      "【レストラン離宮】スペシャルフレンチコース（前菜：鮑のヴァプール、主菜：黒毛和牛フィレ肉のロッシーニ風）",
+      "【レストラン離宮】ノーマルフレンチコース（前菜：沼津港産真鯛のカルパッチョ、主菜：鶏胸肉のサルティンボッカ風、甜點：當季水果＆冰淇淋）"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "sp_numazu2",
+    "epNum": "SP 沼津②",
+    "title": "特別編 沼津におじゃましますSP②",
+    "cast": "整理中",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "あわしまマリンパーク・カエル館",
+        "mapQuery": "あわしまマリンパーク"
+      },
+      {
+        "name": "うみねcafe",
+        "mapQuery": "うみねcafe 淡島"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "sp_numazu3",
+    "epNum": "SP 沼津③",
+    "title": "特別編 沼津におじゃましますSP③",
+    "cast": "整理中",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "淡島水族館",
+        "mapQuery": "淡島水族館"
+      },
+      {
+        "name": "淡島神社",
+        "mapQuery": "淡島神社 沼津"
+      }
+    ],
+    "foods": [],
+    "timeline": []
   }
 ];

@@ -171,8 +171,8 @@ const sehasu105Data = [
       mapQuery: "世界一長いベンチ 道の駅 とぎ海街道"
     },
     foods: [
-      "道之驛名物：馬鈴薯香草冰淇淋（じゃがいもアイス，帶有微鹹顆粒口感）",
-      "能登特色大份量漢堡（厚實麵包夾特選酥炸排與清爽蔬菜）"
+      "道之驛名物：男爵ソフト（馬鈴薯軟霜淇淋）",
+      "道之驛名物：甘エビかき揚げバーガー"
     ],
     timeline: [
       { time: "00:00", sec: 0, text: "開場：三人來到能登海岸，前往 460.9 公尺的世界最長長椅巡禮" },
@@ -183,14 +183,14 @@ const sehasu105Data = [
         time: "16:50", 
         sec: 1010, 
         isEating: true, 
-        foodTitle: "道之驛特產・馬鈴薯香草冰淇淋（じゃがいもアイス）",
+        foodTitle: "道之驛名物・男爵ソフト（馬鈴薯軟霜淇淋）", confidence: "medium",
         text: "開吃前5秒：三人舀起冰淇淋開吃，驚訝於微鹹與濃郁香草的完美融合" 
       },
       { 
         time: "18:15", 
         sec: 1095, 
         isEating: true, 
-        foodTitle: "能登海岸名物・特製大份量酥炸漢堡",
+        foodTitle: "道之驛名物・甘エビかき揚げバーガー", confidence: "medium",
         text: "開吃前5秒：捧起超大厚切漢堡大口咬下！酥脆外皮與多汁內餡香氣四溢" 
       },
       { time: "20:30", sec: 1230, text: "三人一口接一口吃得滿嘴都是，在歡笑與海風中收尾" }
@@ -228,9 +228,9 @@ const sehasu105Data = [
       { name: "烏雞庵（烏鶏庵 東山店）",      mapQuery: "烏鶏庵 東山店 金沢" }
     ],
     foods: [
-      "金澤屋珈琲店：自家烘焙特選黑咖啡、熱焦糖拿鐵",
-      "金澤屋甜點與輕食：現烤蘋果塔、栗子塔、抹茶白玉生麩饅頭、熱壓三明治",
-      "烏雞庵名物：烏骨雞卵金箔奢華霜淇淋（烏骨鶏金箔ソフトクリーム）"
+      "【金澤屋珈琲店】自家烘焙特選黑咖啡、熱焦糖拿鐵",
+      "【金澤屋珈琲店】甜點與輕食：現烤蘋果塔、栗子塔、抹茶白玉生麩饅頭、熱壓三明治",
+      "【烏雞庵】名物：烏骨雞卵金箔奢華霜淇淋（烏骨鶏金箔ソフトクリーム）"
     ],
     timeline: [
       { time: "00:00", sec: 0, text: "前半部：手取遊樂園體驗怪異之屋、旋轉鞦韆與泰德林吉祥物打卡" },
@@ -253,5 +253,225 @@ const sehasu105Data = [
       },
       { time: "27:00", sec: 1620, text: "全員晚間於尾山神社神門前集合看夜間點燈，為金澤能登大外景感動謝幕" }
     ]
+  },
+  {
+    "id": "ep07",
+    "epNum": "EP 07",
+    "title": "新入生歓迎！餃子パーティー！",
+    "cast": "蓮之空全員（105期）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "餃子"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep08",
+    "epNum": "EP 08",
+    "title": "新入生歓迎！餃子パーティー！②",
+    "cast": "蓮之空全員（105期）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "餃子（搭配ポン酢ご飯、檸檬汁）"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep12",
+    "epNum": "EP 12",
+    "title": "ユニット旅 スリーズブーケ編 謎解きに挑戦！",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈 ＆ 櫻井陽菜）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "東京ミステリーサーカス（新宿）",
+        "mapQuery": "東京ミステリーサーカス"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep13",
+    "epNum": "EP 13",
+    "title": "ユニット旅 DOLLCHESTRA編 駄菓子大人買い！",
+    "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子 ＆ 葉山風花）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "お菓子の種屋 中央街店（赤羽）",
+        "mapQuery": "お菓子の種屋 中央街店"
+      }
+    ],
+    "foods": [
+      "駄菓子（ぷっちょグミ、かむかむレモン、ペロコーラ、ラムネ 等）"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep14",
+    "epNum": "EP 14",
+    "title": "ユニット旅 みらくらぱーく！編 チャウチャウに会いに行ってみた！",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな ＆ 来栖りん）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "モフれる大型犬たちのカフェ moffle 相模原店（已搬遷）",
+        "mapQuery": "moffle 相模原店"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep15",
+    "epNum": "EP 15",
+    "title": "ユニット旅 Edel Note編 チリコンカン作ってみた！",
+    "cast": "Edel Note（三宅美羽 ＆ 進藤天音）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "チリコンカン"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep16",
+    "epNum": "EP 16",
+    "title": "コラボ商品PR大作戦！BLACK COLLECTION by ZOZOTOWN",
+    "cast": "蓮之空全員（105期）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "ZOZO 本社（千葉市）",
+        "mapQuery": "ZOZO 本社 千葉"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep18",
+    "epNum": "EP 18",
+    "title": "人狼ゲーム！ポンコツ騎士登場で大爆笑！",
+    "cast": "蓮之空全員（105期）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "ZOZOSTUDIO コーヒースタンド",
+        "mapQuery": "ZOZOSTUDIO コーヒースタンド"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep19",
+    "epNum": "EP 19",
+    "title": "ユニット旅 スリーズブーケ編 うさぎに会いに行きました！",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈 ＆ 櫻井陽菜）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "動物たちが暮らす森 アニミル お台場店（animeal）",
+        "mapQuery": "アニミル お台場"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep21",
+    "epNum": "EP 21",
+    "title": "ユニット旅 みらくらぱーく！編 巨大魚釣りに挑戦！",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな ＆ 来栖りん）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "釣って見つける ぼうけんの国 相模原上溝店",
+        "mapQuery": "ぼうけんの国 相模原上溝"
+      }
+    ],
+    "foods": [],
+    "timeline": []
+  },
+  {
+    "id": "ep23",
+    "epNum": "EP 23",
+    "title": "せーはす！竜胆祭 出店グルメで対決！！",
+    "cast": "蓮之空全員（105期）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "牛久市立おくの義務教育学校",
+        "mapQuery": "牛久市立おくの義務教育学校"
+      }
+    ],
+    "foods": [
+      "あんみとぅやさん（攤位）"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep24",
+    "epNum": "EP 24",
+    "title": "せーはす！文化祭 スリーズブーケ 魂の焼きそば！＆ DOLLCHESTRA 射的！！",
+    "cast": "蓮之空全員（105期）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "魂の焼きそば"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep41",
+    "epNum": "EP 41",
+    "title": "金澤＆能登大外景⑥ 謎屋珈琲店と8番らーめん",
+    "cast": "蓮之空全員（105期）",
+    "videoId": "",
+    "isRestaurant": true,
+    "placeholder": true,
+    "locations": [
+      {
+        "name": "謎屋珈琲店 金沢杜の里店",
+        "mapQuery": "謎屋珈琲店 金沢杜の里店"
+      },
+      {
+        "name": "8番らーめん 駅西本町店",
+        "mapQuery": "8番らーめん 駅西本町店"
+      }
+    ],
+    "foods": [
+      "【8番らーめん 駅西本町店】野菜らーめん（醤油／塩／味噌／バター風味）、野菜コーンバター風味らーめん",
+      "【8番らーめん 駅西本町店】8番餃子（6個）"
+    ],
+    "timeline": []
   }
 ];

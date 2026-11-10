@@ -7,12 +7,12 @@
  */
 
 const NAV_ITEMS = [
-  { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇', short: 'Plus 外景' },
-  { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇', short: '祈願三連華' },
-  { key: 'sehasu103', href: 'sehasu103.html', icon: 'fa-torii-gate',      label: 'せーはす 103 外景聖地篇', short: '103 外景' },
-  { key: 'sehasu104', href: 'sehasu104.html', icon: 'fa-torii-gate',      label: 'せーはす 104 外景聖地篇', short: '104 外景' },
-  { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105 外景' },
-  { key: 'map',       href: 'map.html',       icon: 'fa-map',              label: '聖地美食巡禮地圖', short: '巡禮地圖' }
+  { key: 'plus',      href: 'index.html',     icon: 'fa-compass',          label: 'せーはす Plus 外景篇', short: 'Plus' },
+  { key: 'prayer',    href: 'prayer.html',    icon: 'fa-cake-candles',     label: '劇場版祈願 蓮ノ三連華篇', short: '三連華' },
+  { key: 'sehasu103', href: 'sehasu103.html', icon: 'fa-torii-gate',      label: 'せーはす 103 外景聖地篇', short: '103' },
+  { key: 'sehasu104', href: 'sehasu104.html', icon: 'fa-torii-gate',      label: 'せーはす 104 外景聖地篇', short: '104' },
+  { key: 'sehasu105', href: 'sehasu105.html', icon: 'fa-map-location-dot', label: 'せーはす 105 外景聖地篇', short: '105' },
+  { key: 'map',       href: 'map.html',       icon: 'fa-map',              label: '聖地美食巡禮地圖', short: '地圖' }
 ];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c =>
@@ -208,7 +208,7 @@ function renderEpisode(ep) {
   }).join('');
 
   const watch = noVideo
-    ? `<div class="no-video-note"><i class="fa-solid fa-triangle-exclamation"></i> 這集尚未填入影片 ID，暫時無法播放（請填在資料檔的 videoId）</div>`
+    ? `<div class="no-video-note"><i class="fa-solid fa-triangle-exclamation"></i> ${ep.placeholder ? '這集的影片連結與時間軸整理中' : '這集尚未填入影片 ID，暫時無法播放（請填在資料檔的 videoId）'}</div>`
     : `<button type="button" class="watch-btn" ${seekAttrs(0)} aria-label="從頭播放：${esc(ep.title)}">
           <span class="watch-thumb">
             <img src="https://img.youtube.com/vi/${esc(ep.videoId)}/hqdefault.jpg" alt="" loading="lazy">
@@ -228,6 +228,7 @@ function renderEpisode(ep) {
     <div class="card-header">
       <div class="ep-meta">
         <span class="ep-number">${esc(ep.epNum)}</span>
+        ${ep.placeholder ? '<span class="ph-badge">資料整理中</span>' : ''}
         <h2 class="ep-title">${esc(ep.title)}</h2>
       </div>
       <div class="cast-tag"><i class="fa-solid fa-user-group"></i> ${esc(ep.cast)}</div>
@@ -237,11 +238,11 @@ function renderEpisode(ep) {
         ${watch}
         <div class="location-box">
           <div class="loc-label"><i class="fa-solid fa-location-dot"></i> 外景拍攝地點</div>
-          ${locRows}
+          ${locRows || '<div class="loc-row"><span class="loc-unconfirmed"><i class="fa-solid fa-circle-question"></i> 地點整理中</span></div>'}
         </div>${foodBlock}
         <div class="timeline-section">
           <div class="section-title"><i class="fa-regular fa-clock ic-pink"></i> 時間軸（點時間碼跳轉；<i class="fa-brands fa-youtube"></i> 在 YouTube 開啟）</div>
-          <div class="timeline-list">${timeline}</div>
+          <div class="timeline-list">${timeline || '<p class="timeline-empty">時間軸整理中…</p>'}</div>
         </div>
       </div>
     </div>
@@ -259,6 +260,12 @@ function renderToolbar(data) {
     </label>`;
 }
 
+// 依 EP 編號排序；「SP 4DX」這類特別編沒有數字，排在最後並維持資料檔裡的原順序
+function sortByEpisode(data) {
+  const order = ep => { const m = String(ep.epNum).match(/^EP\s*(\d+)/i); return m ? Number(m[1]) : Number.MAX_SAFE_INTEGER; };
+  return [...data].sort((a, b) => order(a) - order(b));
+}
+
 function renderSiteNav(active) {
   const nav = document.getElementById('siteNav');
   if (nav) {
@@ -270,6 +277,7 @@ function renderSiteNav(active) {
 
 function initPage({ active, data }) {
   renderSiteNav(active);
+  if (Array.isArray(data)) data = sortByEpisode(data);
 
   // 回顧速覽：手機預設折疊，桌面預設展開
   const wide = window.matchMedia('(min-width: 901px)').matches;

@@ -712,3 +712,29 @@ footer a { color: #be185d; }
   .map-selection-heading > a { align-self: flex-start; }
   .map-episode-card { padding: 13px; }
 }
+
+/* 地圖：資訊區按鈕、選取中的標記 */
+.pilgrimage-map { scroll-margin-top: calc(var(--nav-h) + 8px); }
+.map-selection-heading { flex-wrap: wrap; }
+.map-selection-actions { display: flex; flex: none; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px 14px; }
+.map-selection-actions a { color: #be185d; font-size: 0.82rem; font-weight: 700; text-decoration: none; }
+.map-selection-actions a:hover { text-decoration: underline; }
+.map-back-button {
+  border: 1px solid #fbcfe8;
+  border-radius: 16px;
+  padding: 6px 12px;
+  background: #fff;
+  color: #9d174d;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.map-back-button:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+.map-marker.is-selected { box-shadow: 0 0 0 3px #fff, 0 0 0 6px #7c3aed, 0 3px 10px rgba(31, 41, 55, 0.45); }
+
+/* 空位集數（資料整理中） */
+.ph-badge { flex: none; border: 1px dashed #d97706; border-radius: 8px; padding: 2px 8px; background: #fffbeb; color: #92400e; font-size: 0.72rem; font-weight: 700; }
+.timeline-empty { margin: 0; padding: 10px 12px; border: 1px dashed #e5e7eb; border-radius: 8px; color: var(--text-muted); font-size: 0.84rem; }
+.site-credit { font-size: 0.78rem; }
+.site-credit a { color: #be185d; }

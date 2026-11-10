@@ -74,5 +74,61 @@ const moviePrayerData = [
       { time: "16:31", sec: 991, text: "身為三年級生的集大成真情告白：把三年的積累化為舞台奇蹟" },
       { time: "19:41", sec: 1181, text: "《ブルパ開催！映画大入り祈願！》全系列圓滿完結" }
     ]
+  },
+  {
+    "id": "ep06",
+    "epNum": "EP 06",
+    "title": "全国花咲くキャンペーン（金沢編）スリーズブーケ②",
+    "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "賞品：こまつ町家文庫「世界文学ジャム全集」"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep08",
+    "epNum": "EP 08",
+    "title": "全国花咲くキャンペーン（金沢編）DOLLCHESTRA②",
+    "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "賞品：加藤晧陽堂 うちわ煎餅"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep10",
+    "epNum": "EP 10",
+    "title": "全国花咲くキャンペーン（金沢編）みらくらぱーく！②",
+    "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "賞品：金沢の味 佃の佃煮 器茶漬け"
+    ],
+    "timeline": []
+  },
+  {
+    "id": "ep12",
+    "epNum": "EP 12",
+    "title": "全国花咲くキャンペーン（金沢編）Edel Note②",
+    "cast": "Edel Note（三宅美羽 ＆ 進藤天音）",
+    "videoId": "",
+    "isRestaurant": false,
+    "placeholder": true,
+    "locations": [],
+    "foods": [
+      "賞品：石川百右衛門 加賀れんこんチップス、五郎島さつまいもチップス、能登柿之助 バターの乱"
+    ],
+    "timeline": []
   }
 ];
