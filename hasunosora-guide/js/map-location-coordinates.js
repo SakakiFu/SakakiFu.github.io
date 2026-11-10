@@ -52,5 +52,8 @@ const mapLocationCoordinates = [
   { key: "かなざわ 宗友", lat: 36.57245, lng: 136.66708, region: "kanazawa", approximate: false, food: true },
   { key: "新香園 焼肉", lat: 35.70932, lng: 139.7533, region: "kanto", approximate: false, food: true },
   { key: "ふくい、望洋楼 青山店", lat: 35.6621628, lng: 139.7137289, region: "kanto", approximate: false, food: true },
-  { key: "和菓子村上 長町店", lat: 36.56401, lng: 136.6498057, region: "kanazawa", approximate: false, food: true }
+  { key: "和菓子村上 長町店", lat: 36.56401, lng: 136.6498057, region: "kanazawa", approximate: false, food: true },
+  { key: "サンシャイン水族館", lat: 35.72917, lng: 139.71981, region: "kanto", approximate: false, food: false },
+  { key: "ナンジャタウン", lat: 35.72861, lng: 139.72, region: "kanto", approximate: false, food: false },
+  { key: "ナンジャ餃子スタジアム", lat: 35.72861, lng: 139.72, region: "kanto", approximate: false, food: true }
 ];

@@ -770,73 +770,276 @@ const sehasu104Data = [
     "timeline": []
   },
   {
+    "id": "ep24",
+    "epNum": "EP 24",
+    "title": "学年別企画 3年生編①",
+    "cast": "3年生（花宮初奈 ＆ 佐々木琴子 ＆ 月音こな）",
+    "videoId": "lfF1dQ7oMBw",
+    "isRestaurant": false,
+    "locations": [],
+    "foods": [],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "開場：3年生3人登場，學年別企畫開幕，預告要穿蘿莉塔服",
+        "confidence": "high"
+      },
+      {
+        "time": "01:07",
+        "text": "企畫發表：花宮初奈說明本次企畫是「穿蘿莉塔服」，是她想看大家穿蘿莉塔服的私心企劃，佐々木琴子補充萬聖節將近正合適",
+        "confidence": "high"
+      },
+      {
+        "time": "02:19",
+        "text": "3人事先選好各自的蘿莉塔服，分享挑選方向後去換裝",
+        "confidence": "high"
+      },
+      {
+        "time": "06:14",
+        "text": "換裝完成後在佈置華麗、有吊燈的攝影棚內互相欣賞、拍照，聊起像回到自己家一樣自在",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
     "id": "ep25",
     "epNum": "EP 25",
     "title": "学年別企画 2年生編①（2年生の休日）",
-    "cast": "整理中",
-    "videoId": "",
+    "cast": "2年生（楡井希実 ＆ 野中ここな ＆ 菅叶和）",
+    "videoId": "CQVjZsqQsLU",
     "isRestaurant": false,
-    "placeholder": true,
     "locations": [
       {
-        "name": "サンシャイン水族館（池袋）",
-        "mapQuery": "サンシャイン水族館"
+        "mapQuery": "サンシャイン水族館",
+        "name": "サンシャイン水族館（池袋）"
       }
     ],
     "foods": [],
-    "timeline": []
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "開場：2年生三人來到サンシャイン水族館",
+        "confidence": "high"
+      },
+      {
+        "time": "01:06",
+        "text": "企劃說明：本次是學年別企劃「2年生の休日 in サンシャイン水族館」",
+        "confidence": "high"
+      },
+      {
+        "time": "01:36",
+        "text": "提到8時15分集合，現在約8時半，是一次很早的休日出遊",
+        "confidence": "high"
+      },
+      {
+        "time": "02:56",
+        "text": "出發去看ケープペンギン，向企鵝打招呼",
+        "confidence": "high"
+      },
+      {
+        "time": "15:56",
+        "text": "結尾總結：2年生的水族館休日行程結束，下次想再來挑戰",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "ep26",
+    "epNum": "EP 26",
+    "title": "学年別企画 1年生編①",
+    "cast": "1年生（櫻井陽菜 ＆ 葉山風花 ＆ 来栖りん）",
+    "videoId": "hgBtzdZbLUw",
+    "isRestaurant": false,
+    "locations": [],
+    "foods": [],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "開場：1年生三人一起玩桌遊「テストプレイなんてしてないよ」，介紹以勝利／敗北卡決勝負的卡牌遊戲",
+        "confidence": "high"
+      },
+      {
+        "time": "00:09",
+        "text": "說明規則：敗北時可打出特定卡、從山札抽 2 張牌等，遊戲正式開始",
+        "confidence": "medium"
+      }
+    ]
   },
   {
     "id": "ep27",
     "epNum": "EP 27",
     "title": "学年別企画 3年生編②（コストコ）",
-    "cast": "整理中",
-    "videoId": "",
-    "isRestaurant": true,
-    "placeholder": true,
+    "cast": "3年生（花宮初奈 ＆ 佐々木琴子 ＆ 月音こな）",
+    "videoId": "t_qJCjWvfx8",
+    "isRestaurant": false,
     "locations": [
       {
-        "name": "コストコ（分店未註明）",
-        "mapQuery": null
+        "mapQuery": null,
+        "name": "コストコ"
       }
     ],
     "foods": [
-      "コストコ持ち込みパーティー：チキン、ポテト、エビ"
+      "チキン",
+      "ポテト",
+      "エビ",
+      "レモネード",
+      "ピザ"
     ],
-    "timeline": []
+    "timeline": [
+      {
+        "time": "01:00",
+        "text": "開場宣布本集企劃是成本好市多派對，由琴子帶來的食材開派對。",
+        "confidence": "high"
+      },
+      {
+        "time": "03:55",
+        "text": "第一次吃東西：吃下雞肉和薯條，直呼好吃，並稱讚蝦非常美味。",
+        "isEating": true,
+        "foodTitle": "チキン・ポテト",
+        "confidence": "medium"
+      },
+      {
+        "time": "04:44",
+        "text": "喝檸檬水，直呼非常好喝，並聊到檸檬片很大。",
+        "confidence": "medium"
+      },
+      {
+        "time": "05:31",
+        "text": "三人閒聊：三年生常聊好市多、美食與貓，幾乎只聊吃飯的話題。",
+        "confidence": "medium"
+      },
+      {
+        "time": "07:27",
+        "text": "吃披薩，直呼好吃，並聊到吃了兩片、想吃蔬菜等話題。",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "ep28",
+    "epNum": "EP 28",
+    "title": "学年別企画 3年生編③",
+    "cast": "3年生（花宮初奈 ＆ 佐々木琴子 ＆ 月音こな）",
+    "videoId": "gurNt7U9NpY",
+    "isRestaurant": false,
+    "locations": [],
+    "foods": [],
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "開場即以「結婚したい」作開場白，三位3年生登場",
+        "confidence": "medium"
+      },
+      {
+        "time": "00:13",
+        "text": "宣布本集玩卡牌遊戲「たった今考えたプロポーズの言葉を君に捧ぐよ」",
+        "confidence": "high"
+      },
+      {
+        "time": "00:55",
+        "text": "說明遊戲規則：每人抽6張單字卡組合成求婚台詞，最後說「結婚しよう」並遞出指環，親（被求婚者）選出最心動的一位收下指環",
+        "confidence": "high"
+      },
+      {
+        "time": "02:34",
+        "text": "第一輪求婚開始，陸續出現「幸せな僕と一生一緒だよ」「君だけのナイトになってあげるよ」等即興台詞",
+        "confidence": "high"
+      },
+      {
+        "time": "03:36",
+        "text": "花宮初奈收下佐々木琴子遞出的指環，琴子手上指環剩2個",
+        "confidence": "high"
+      }
+    ]
   },
   {
     "id": "ep29",
     "epNum": "EP 29",
     "title": "学年別企画 2年生編②",
-    "cast": "整理中",
-    "videoId": "",
+    "cast": "2年生（楡井希実 ＆ 野中ここな ＆ 菅叶和）",
+    "videoId": "txj6CYjTdao",
     "isRestaurant": false,
-    "placeholder": true,
     "locations": [
       {
-        "name": "ナンジャタウン（池袋）",
-        "mapQuery": "ナンジャタウン"
+        "mapQuery": "ナンジャタウン",
+        "name": "ナンジャタウン（池袋）"
       }
     ],
     "foods": [],
-    "timeline": []
+    "timeline": [
+      {
+        "time": "00:00",
+        "text": "開場：三人來到ナンジャタウン，向觀眾打招呼。",
+        "confidence": "high"
+      },
+      {
+        "time": "01:00",
+        "text": "說明本集企劃：2年生休日在ナンジャタウン。",
+        "confidence": "high"
+      },
+      {
+        "time": "01:25",
+        "text": "提到想來ナンジャタウン的原因：小時候常和家人、朋友來，是充滿回憶的地方。",
+        "confidence": "medium"
+      },
+      {
+        "time": "05:16",
+        "text": "挑戰釣魚遊戲「ナジャヴの爆釣りスピリッツ」，目標釣起古代龜アーケロ等怪獸級魚類。",
+        "confidence": "medium"
+      }
+    ]
   },
   {
     "id": "ep30",
     "epNum": "EP 30",
     "title": "学年別企画 2年生編③",
-    "cast": "整理中",
-    "videoId": "",
+    "cast": "2年生（楡井希実 ＆ 野中ここな ＆ 菅叶和）",
+    "videoId": "l0Dx8-Rvbwg",
     "isRestaurant": true,
-    "placeholder": true,
-    "locations": [],
-    "foods": [
-      "羽根つき餃子、餃子マヨネーズ味、餃子明太マヨ味",
-      "焼豚丼、水餃子、小籠包",
-      "メロンソーダ、アイス（數款）"
+    "locations": [
+      {
+        "mapQuery": "ナンジャタウン",
+        "name": "ナンジャタウン"
+      },
+      {
+        "mapQuery": "ナンジャ餃子スタジアム",
+        "name": "ナンジャ餃子スタジアム"
+      }
     ],
-    "timeline": []
+    "foods": [
+      "元祖羽根つき餃子",
+      "～ソースde牛とんぽう～マヨペッパー餃子",
+      "肉盛明太マヨ餃子",
+      "小江戸川越焼き小籠包",
+      "秘伝タレ焼豚丼",
+      "水餃子",
+      "メロンソーダ",
+      "アイス"
+    ],
+    "timeline": [
+      {
+        "time": "01:24",
+        "text": "來到ナンジャ餃子スタジアム，開始看各款餃子。",
+        "confidence": "medium"
+      },
+      {
+        "time": "02:36",
+        "text": "三人邊看菜單邊討論，提到還有水餃子和小籠包。",
+        "confidence": "medium"
+      },
+      {
+        "time": "03:51",
+        "text": "餃子上桌後開始食レポ，三人逐一試吃。",
+        "isEating": true,
+        "foodTitle": "羽根つき餃子",
+        "confidence": "medium"
+      },
+      {
+        "time": "15:20",
+        "text": "結尾回顧2年生在ナンジャタウン的休日，表示吃得很滿足。",
+        "confidence": "medium"
+      }
+    ]
   },
   {
     "id": "ep31",
