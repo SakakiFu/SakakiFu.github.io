@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SakakiFu — Projects</title>
+  <meta name="description" content="SakakiFu 的專案列表">
+  <meta property="og:title" content="SakakiFu — Projects">
+  <meta property="og:description" content="SakakiFu 的專案列表">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sakakifu.github.io/">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e7e5ee;
+      --chip: #f1f0f6;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -12px rgba(0, 0, 0, 0.12);
+      --shadow-hover: 0 2px 4px rgba(0, 0, 0, 0.05), 0 18px 36px -14px rgba(0, 0, 0, 0.22);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111015;
+        --card: #1b1a21;
+        --text: #ece9f3;
+        --muted: #9b97a8;
+        --border: #2c2a35;
+        --chip: #26242e;
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        --shadow-hover: 0 18px 36px -14px rgba(0, 0, 0, 0.6);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    header { padding: 64px 0 28px; }
+    header h1 { margin: 0; font-size: clamp(28px, 5vw, 40px); font-weight: 900; letter-spacing: -0.02em; }
+    header p { margin: 6px 0 0; color: var(--muted); }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 24px; }
+    .search {
+      flex: 1 1 220px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      color: var(--text);
+      font: inherit;
+    }
+    .search:focus { outline: 2px solid #a78bfa; outline-offset: 1px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag-btn {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--muted);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .tag-btn[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card {
+      --accent: #8b5cf6;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+    .card::before { content: ""; position: absolute; inset: 0 0 auto; height: 3px; background: var(--accent); z-index: 1; }
+    .cover {
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--accent), color-mix(in srgb, var(--accent) 40%, #fff));
+      display: grid;
+      place-items: center;
+      font-size: 56px;
+      overflow: hidden;
+    }
+    .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .title-row { display: flex; align-items: flex-start; gap: 8px; }
+    .card h2 { margin: 0; font-size: 18px; line-height: 1.4; flex: 1; }
+    /* 讓整張卡片可點，但內部連結仍可單獨點 */
+    .card h2 a { text-decoration: none; }
+    .card h2 a::after { content: ""; position: absolute; inset: 0; }
+    .subtitle { margin: -4px 0 0; font-size: 13px; color: var(--accent); font-weight: 700; }
+    .desc { margin: 0; font-size: 14px; color: var(--muted); }
+    .status {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--chip);
+      color: var(--muted);
+    }
+    .status.active { background: #dcfce7; color: #166534; }
+    .status.wip { background: #fef3c7; color: #92400e; }
+    .chips, .links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { font-size: 12px; padding: 2px 8px; border-radius: 6px; background: var(--chip); color: var(--muted); }
+    .links { margin-top: auto; padding-top: 8px; }
+    .links a {
+      position: relative;
+      z-index: 2;
+      font-size: 13px;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .links a:hover { border-color: var(--accent); color: var(--accent); }
+    .meta { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; align-items: center; }
+    .meta a { position: relative; z-index: 2; }
+    .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 48px 0; }
+
+    footer { padding: 48px 0; color: var(--muted); font-size: 13px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>SakakiFu</h1>
+      <p>做過的東西都放這。</p>
+    </header>
+
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="搜尋專案…" aria-label="搜尋專案">
+      <div class="tags" id="tags"></div>
+    </div>
+
+    <main class="grid" id="grid"></main>
+
+    <footer>
+      <a href="https://github.com/SakakiFu">GitHub @SakakiFu</a>
+    </footer>
+  </div>
+
+  <script src="projects.js"></script>
+  <script>
+    (() => {
+      const STATUS_LABEL = { active: "更新中", wip: "製作中", archived: "已封存" };
+      const grid = document.getElementById("grid");
+      const tagBox = document.getElementById("tags");
+      const search = document.getElementById("search");
+
+      const params = new URLSearchParams(location.search);
+      let activeTag = params.get("tag") || "";
+      search.value = params.get("q") || "";
+
+      const esc = (s) =>
+        String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+
+      const sorted = [...projects].sort((a, b) => {
+        // archived 沉底，其餘依更新日期新到舊
+        const arch = (a.status === "archived") - (b.status === "archived");
+        return arch || String(b.updated || "").localeCompare(String(a.updated || ""));
+      });
+
+      const allTags = [...new Set(projects.flatMap((p) => p.tags || []))];
+
+      function renderTags() {
+        // 只有一個專案時標籤篩選沒意義，先藏起來
+        if (projects.length < 2) {
+          tagBox.hidden = true;
+          return;
+        }
+        tagBox.innerHTML = ["", ...allTags]
+          .map(
+            (t) =>
+              `<button class="tag-btn" data-tag="${esc(t)}" aria-pressed="${t === activeTag}">${t ? esc(t) : "全部"}</button>`
+          )
+          .join("");
+      }
+
+      function card(p) {
+        const isExternal = /^https?:/.test(p.href);
+        const target = isExternal ? ' target="_blank" rel="noopener"' : "";
+        const cover = p.cover
+          ? `<img src="${esc(p.cover)}" alt="" loading="lazy">`
+          : esc(p.emoji || "📁");
+        const links = (p.links || [])
+          .map((l) => `<a href="${esc(l.href)}">${esc(l.label)}</a>`)
+          .join("");
+        return `
+          <article class="card" style="--accent:${esc(p.accent || "#8b5cf6")}">
+            <div class="cover">${cover}</div>
+            <div class="body">
+              <div class="title-row">
+                <h2><a href="${esc(p.href)}"${target}>${esc(p.title)}</a></h2>
+                ${p.status ? `<span class="status ${esc(p.status)}">${esc(STATUS_LABEL[p.status] || p.status)}</span>` : ""}
+              </div>
+              ${p.subtitle ? `<p class="subtitle">${esc(p.subtitle)}</p>` : ""}
+              <p class="desc">${esc(p.desc)}</p>
+              <div class="chips">${(p.tags || []).map((t) => `<span class="chip">${esc(t)}</span>`).join("")}</div>
+              ${links ? `<div class="links">${links}</div>` : ""}
+              <div class="meta">
+                <span>${p.updated ? `更新 ${esc(p.updated)}` : ""}</span>
+                ${p.repo ? `<a href="${esc(p.repo)}" target="_blank" rel="noopener">原始碼</a>` : ""}
+              </div>
+            </div>
+          </article>`;
+      }
+
+      function render() {
+        const q = search.value.trim().toLowerCase();
+        const list = sorted.filter((p) => {
+          if (activeTag && !(p.tags || []).includes(activeTag)) return false;
+          if (!q) return true;
+          return [p.title, p.subtitle, p.desc, ...(p.tags || [])].join(" ").toLowerCase().includes(q);
+        });
+        grid.innerHTML = list.length ? list.map(card).join("") : `<p class="empty">沒有符合的專案</p>`;
+
+        // 篩選狀態同步到網址，可直接分享
+        const next = new URLSearchParams();
+        if (q) next.set("q", search.value.trim());
+        if (activeTag) next.set("tag", activeTag);
+        const qs = next.toString();
+        history.replaceState(null, "", qs ? `?${qs}` : location.pathname);
+      }
+
+      tagBox.addEventListener("click", (e) => {
+        const btn = e.target.closest(".tag-btn");
+        if (!btn) return;
+        activeTag = btn.dataset.tag;
+        renderTags();
+        render();
+      });
+      search.addEventListener("input", render);
+
+      renderTags();
+      render();
+    })();
+  </script>
+</body>
+</html>
