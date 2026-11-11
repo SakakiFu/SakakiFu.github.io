@@ -8,21 +8,24 @@
 | --- | --- |
 | [`index.html`](./index.html) | せーはす Plus 外景與美食 |
 | [`prayer.html`](./prayer.html) | 劇場版大賣祈願「蓮ノ三連華」甜點咖啡廳對談 |
+| [`sehasu103.html`](./sehasu103.html) | せーはす 103 房總夏日 BBQ、金澤大外景與燒肉派對 |
 | [`sehasu104.html`](./sehasu104.html) | せーはす 104 金澤外景與美食 |
 | [`sehasu105.html`](./sehasu105.html) | せーはす 105 Unit 旅與金澤能登外景 |
 | [`map.html`](./map.html) | 整合各系列景點、餐廳與影片的巡禮地圖 |
 
-各頁面共用導覽列，可在五個主題之間切換。
+各頁面共用導覽列，可在六個主題之間切換。
 
 ## 使用方式
 
 網站為純 HTML、CSS、JavaScript 靜態網站，無需建置或安裝相依套件。部署至靜態網站主機後，從 `index.html` 開始瀏覽；在本機也可使用任何靜態檔案伺服器預覽。
 
 - 點選時間碼播放對應片段；點選縮圖可從影片開頭播放。
-- 播放器固定在畫面下方，可縮小、關閉，或定位回目前播放的時間軸。
-- 點選 YouTube 圖示可在 YouTube 開啟影片；已知拍攝地點提供 Google Maps 連結。
-- 使用「只看美食片段」篩選有美食標記的集數。
-- 巡禮地圖以粉紅標記表示一般外景，以金色 🍴 標記表示同款美食餐廳；區域按鈕可快速切換金澤、能登、加賀、關東與全日本視角。
+- 播放器固定在畫面下方，可縮小、關閉、分享目前時間點連結，或定位回目前播放的時間軸。
+- 點選 YouTube 圖示可在 YouTube 開啟影片；已知拍攝地點提供 Google Maps 連結與「巡禮地圖定位」跳轉。
+- **跨集數全文搜尋 ＆ Unit / 成員篩選**：支援關鍵字即時過濾（店名、同款料理、聲優、時間軸），並可切換「跨全站 5 系列搜尋」或依 Unit（スリーズブーケ、DOLLCHESTRA、みらくらぱーく！、Edel Note、蓮ノ三連華）與「只看美食片段」篩選。
+- **我的巡禮清單 / 打卡紀錄（`localStorage` ＋ 匯出 KML / GeoJSON）**：每個地點可標記「⭐ 想去」或「✅ 已踩點」，自動儲存於瀏覽器 `localStorage`，並可一鍵匯出 `.kml`（直接匯入 Google My Maps「我的地圖」）或 `.geojson`。
+- **URL Deep Linking（深度連結分享）**：支援分享特定集數與時間碼（如 `sehasu103.html?ep=ep27&t=1077`）或特定地圖點位（如 `map.html?loc=グリルオーツカ`），點開網址即自動定位並跳轉。
+- 巡禮地圖以粉紅標記表示一般外景，以金色 🍴 標記表示同款美食餐廳，並顯示打卡徽章（★ 想去／✓ 已踩點）；區域按鈕可快速切換金澤、能登、加賀、關東與全日本視角。
 - 鄰近標記會群集以避免重疊；點擊群集可放大，選擇地點後會顯示相關集數並在共用播放器播放影片。
 - 未公開或只有概略描述的地點會標示為約略位置。
 
@@ -32,13 +35,14 @@
 hasunosora-guide/
 ├── index.html                 # せーはす Plus
 ├── prayer.html                # 劇場版大賣祈願
+├── sehasu103.html             # せーはす 103
 ├── sehasu104.html             # せーはす 104
 ├── sehasu105.html             # せーはす 105
 ├── map.html                   # 聖地美食巡禮地圖
 ├── css/
 │   └── style.css              # 全站共用 RWD 樣式
 ├── js/
-│   ├── app.js                 # 導覽列、頁面渲染與共用播放器
+│   ├── app.js                 # 導覽列、搜尋篩選、打卡匯出、Deep Link 與共用播放器
 │   ├── data-sehasu-plus.js    # せーはす Plus 集數資料
 │   ├── data-movie-prayer.js   # 劇場版大賣祈願資料
 │   ├── data-sehasu-103.js     # せーはす 103 集數資料
@@ -58,22 +62,25 @@ flowchart TD
     subgraph Site[靜態網站：hasunosora-guide]
         Browser --> Plus[index.html<br/>せーはす Plus]
         Browser --> Prayer[prayer.html<br/>劇場版大賣祈願]
+        Browser --> Sehasu103[sehasu103.html<br/>せーはす 103]
         Browser --> Sehasu104[sehasu104.html<br/>せーはす 104]
         Browser --> Sehasu105[sehasu105.html<br/>せーはす 105]
         Browser --> Map[map.html<br/>聖地美食巡禮地圖]
 
         Plus --> PlusData[data-sehasu-plus.js]
         Prayer --> PrayerData[data-movie-prayer.js]
-        MapScript --> Sehasu103Data[data-sehasu-103.js]
+        Sehasu103 --> Sehasu103Data[data-sehasu-103.js]
         Sehasu104 --> Sehasu104Data[data-sehasu-104.js]
         Sehasu105 --> Sehasu105Data[data-sehasu-105.js]
 
-        Plus --> App[app.js<br/>共用渲染與播放器]
+        Plus --> App[app.js<br/>共用渲染、搜尋、打卡與播放器]
         Prayer --> App
+        Sehasu103 --> App
         Sehasu104 --> App
         Sehasu105 --> App
         Plus --> Style[css/style.css<br/>共用 RWD 樣式]
         Prayer --> Style
+        Sehasu103 --> Style
         Sehasu104 --> Style
         Sehasu105 --> Style
 
@@ -85,6 +92,7 @@ flowchart TD
 
     App --> YouTube[YouTube IFrame Player API]
     App -. API 無法載入時改用 iframe .-> Embed[YouTube 嵌入播放器]
+    App --> Storage[localStorage 巡禮清單與 KML/GeoJSON 匯出]
     Map --> Tiles[地理院 淡色地圖底圖]
     App --> Maps[Google Maps 地點搜尋連結]
     MapScript --> Maps

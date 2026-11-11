@@ -259,7 +259,7 @@ const sehasu105Data = [
     "epNum": "EP 07",
     "title": "新入生歓迎！餃子パーティー！",
     "cast": "蓮之空全員（105期）",
-    "videoId": "",
+    "videoId": "mcE7fmUh3jM",
     "isRestaurant": true,
     "placeholder": true,
     "locations": [],
@@ -273,7 +273,7 @@ const sehasu105Data = [
     "epNum": "EP 08",
     "title": "新入生歓迎！餃子パーティー！②",
     "cast": "蓮之空全員（105期）",
-    "videoId": "",
+    "videoId": "u01hq9tSh3o",
     "isRestaurant": true,
     "placeholder": true,
     "locations": [],
@@ -287,7 +287,7 @@ const sehasu105Data = [
     "epNum": "EP 12",
     "title": "ユニット旅 スリーズブーケ編 謎解きに挑戦！",
     "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈 ＆ 櫻井陽菜）",
-    "videoId": "",
+    "videoId": "qqcN5HkTx0o",
     "isRestaurant": false,
     "placeholder": true,
     "locations": [
@@ -304,7 +304,7 @@ const sehasu105Data = [
     "epNum": "EP 13",
     "title": "ユニット旅 DOLLCHESTRA編 駄菓子大人買い！",
     "cast": "DOLLCHESTRA（野中ここな ＆ 佐佐木琴子 ＆ 葉山風花）",
-    "videoId": "",
+    "videoId": "w3ZDm8Fxp9s",
     "isRestaurant": true,
     "placeholder": true,
     "locations": [
@@ -323,7 +323,7 @@ const sehasu105Data = [
     "epNum": "EP 14",
     "title": "ユニット旅 みらくらぱーく！編 チャウチャウに会いに行ってみた！",
     "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな ＆ 来栖りん）",
-    "videoId": "",
+    "videoId": "6lbgytfTEYM",
     "isRestaurant": false,
     "placeholder": true,
     "locations": [
@@ -340,7 +340,7 @@ const sehasu105Data = [
     "epNum": "EP 15",
     "title": "ユニット旅 Edel Note編 チリコンカン作ってみた！",
     "cast": "Edel Note（三宅美羽 ＆ 進藤天音）",
-    "videoId": "",
+    "videoId": "QLONQokpvuk",
     "isRestaurant": true,
     "placeholder": true,
     "locations": [],
@@ -354,7 +354,7 @@ const sehasu105Data = [
     "epNum": "EP 16",
     "title": "コラボ商品PR大作戦！BLACK COLLECTION by ZOZOTOWN",
     "cast": "蓮之空全員（105期）",
-    "videoId": "",
+    "videoId": "FsmjkHQ5VXA",
     "isRestaurant": false,
     "placeholder": true,
     "locations": [
@@ -371,8 +371,8 @@ const sehasu105Data = [
     "epNum": "EP 18",
     "title": "人狼ゲーム！ポンコツ騎士登場で大爆笑！",
     "cast": "蓮之空全員（105期）",
-    "videoId": "",
-    "isRestaurant": false,
+    "videoId": "2eDlJKAZs8I",
+    "isRestaurant": true,
     "placeholder": true,
     "locations": [
       {
@@ -380,7 +380,9 @@ const sehasu105Data = [
         "mapQuery": "ZOZOSTUDIO コーヒースタンド"
       }
     ],
-    "foods": [],
+    "foods": [
+      "【ZOZOSTUDIO コーヒースタンド】エスプレッソサンライズ（夏季限定メニュー）"
+    ],
     "timeline": []
   },
   {
@@ -388,7 +390,7 @@ const sehasu105Data = [
     "epNum": "EP 19",
     "title": "ユニット旅 スリーズブーケ編 うさぎに会いに行きました！",
     "cast": "スリーズブーケ（楡井希実 ＆ 花宮初奈 ＆ 櫻井陽菜）",
-    "videoId": "",
+    "videoId": "3MzY8x2ehRg",
     "isRestaurant": false,
     "placeholder": true,
     "locations": [
@@ -405,7 +407,7 @@ const sehasu105Data = [
     "epNum": "EP 21",
     "title": "ユニット旅 みらくらぱーく！編 巨大魚釣りに挑戦！",
     "cast": "みらくらぱーく！（菅叶和 ＆ 月音こな ＆ 来栖りん）",
-    "videoId": "",
+    "videoId": "5-z_SpCfw1k",
     "isRestaurant": false,
     "placeholder": true,
     "locations": [
@@ -422,7 +424,7 @@ const sehasu105Data = [
     "epNum": "EP 23",
     "title": "せーはす！竜胆祭 出店グルメで対決！！",
     "cast": "蓮之空全員（105期）",
-    "videoId": "",
+    "videoId": "7IFLDPeU7-8",
     "isRestaurant": true,
     "placeholder": true,
     "locations": [
@@ -441,7 +443,7 @@ const sehasu105Data = [
     "epNum": "EP 24",
     "title": "せーはす！文化祭 スリーズブーケ 魂の焼きそば！＆ DOLLCHESTRA 射的！！",
     "cast": "蓮之空全員（105期）",
-    "videoId": "",
+    "videoId": "yzwkCySI1vc",
     "isRestaurant": true,
     "placeholder": true,
     "locations": [],
@@ -455,7 +457,7 @@ const sehasu105Data = [
     "epNum": "EP 41",
     "title": "金澤＆能登大外景⑥ 謎屋珈琲店と8番らーめん",
     "cast": "蓮之空全員（105期）",
-    "videoId": "",
+    "videoId": "QynD9H1HpeQ",
     "isRestaurant": true,
     "placeholder": true,
     "locations": [

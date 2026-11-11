@@ -738,3 +738,443 @@ footer a { color: #be185d; }
 .timeline-empty { margin: 0; padding: 10px 12px; border: 1px dashed #e5e7eb; border-radius: 8px; color: var(--text-muted); font-size: 0.84rem; }
 .site-credit { font-size: 0.78rem; }
 .site-credit a { color: #be185d; }
+
+/* ---------- 我的巡禮清單 / 打卡與匯出列 ---------- */
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.map-filter-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.pilgrimage-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 14px;
+  padding: 10px 14px;
+  border: 1px solid #fbcfe8;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #fff5f8 0%, #fffbeb 100%);
+  box-shadow: var(--shadow);
+}
+.pilgrimage-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #831843;
+}
+.pilgrimage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.pilgrimage-badge--wish {
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  color: #92400e;
+}
+.pilgrimage-badge--visited {
+  background: #dcfce7;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+.pilgrimage-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.pilgrimage-export-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid var(--primary);
+  border-radius: 16px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.pilgrimage-export-btn:hover { background: #be185d; border-color: #be185d; }
+.pilgrimage-export-btn.is-secondary {
+  background: #fff;
+  border-color: #fbcfe8;
+  color: #be185d;
+}
+.pilgrimage-export-btn.is-secondary:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+.pilgrimage-export-btn.is-ghost {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: #e5e7eb;
+  color: #4b5563;
+}
+.pilgrimage-export-btn.is-ghost:hover {
+  background: #fff;
+  border-color: #9ca3af;
+  color: #111827;
+}
+
+/* ---------- 跨集數搜尋與 Unit / 打卡篩選面板 ---------- */
+.filter-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.search-input-wrap {
+  position: relative;
+  flex: 1 1 240px;
+  display: flex;
+  align-items: center;
+}
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #9ca3af;
+  font-size: 0.88rem;
+  pointer-events: none;
+}
+.search-input {
+  width: 100%;
+  padding: 8px 34px 8px 34px;
+  border: 1px solid #f3d0df;
+  border-radius: 20px;
+  background: #fffbfd;
+  color: var(--text);
+  font-size: 0.86rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 64, 129, 0.14);
+  outline: none;
+}
+.search-clear {
+  position: absolute;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.search-clear:hover { background: #e5e7eb; color: #111827; }
+.global-search-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid #fbcfe8;
+  border-radius: 16px;
+  background: #fdf2f8;
+  color: #9d174d;
+  font-size: 0.83rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.global-search-toggle input { accent-color: var(--primary); width: 15px; height: 15px; }
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+.unit-filter-group, .stamp-filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border: 1px solid #f3d0df;
+  border-radius: 16px;
+  background: #fff;
+  color: #6b7280;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.filter-chip:hover {
+  border-color: var(--primary);
+  color: #be185d;
+}
+.filter-chip.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.filter-chip--wish.is-active {
+  background: #d97706;
+  border-color: #d97706;
+  color: #fff;
+}
+.filter-chip--visited.is-active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #fff;
+}
+.filter-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed #fce4ec;
+  font-size: 0.82rem;
+  color: #4b5563;
+}
+.inline-action-btn, .inline-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border: 1px solid #fbcfe8;
+  border-radius: 12px;
+  background: #fdf2f8;
+  color: #be185d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.inline-action-btn:hover, .inline-reset-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.toc-chip.is-filtered-out {
+  opacity: 0.32;
+}
+
+/* ---------- 打卡按鈕（想去 / 已踩點）與分享按鈕 ---------- */
+.loc-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.loc-map-btn {
+  color: #7c3aed;
+}
+.loc-row.is-highlighted {
+  background: #fef3c7;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+.stamp-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.stamp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  background: #fff;
+  color: #6b7280;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.stamp-btn--wish:hover {
+  border-color: #f59e0b;
+  color: #b45309;
+  background: #fffbeb;
+}
+.stamp-btn--wish.is-active {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #fff;
+}
+.stamp-btn--visited:hover {
+  border-color: #16a34a;
+  color: #15803d;
+  background: #f0fdf4;
+}
+.stamp-btn--visited.is-active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #fff;
+}
+.card-header-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.ep-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border: 1px solid #fbcfe8;
+  border-radius: 14px;
+  background: #fff;
+  color: #be185d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ep-share-btn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+.ep-series-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 9px;
+  border-radius: 8px;
+  background: #7c3aed;
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-decoration: none;
+  flex: none;
+}
+.ep-series-badge:hover { background: #6d28d9; }
+.tl-share {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.tl-share:hover {
+  background: #fdf2f8;
+  border-color: #fbcfe8;
+  color: #be185d;
+}
+
+/* ---------- 地圖標記打卡徽章與卡片操作 ---------- */
+.map-marker-stamp {
+  position: absolute;
+  bottom: -4px;
+  left: -6px;
+  display: grid;
+  width: 16px;
+  height: 16px;
+  place-items: center;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  font-size: 9px;
+  font-weight: 900;
+  line-height: 1;
+  transform: rotate(45deg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+.map-marker-stamp--visited { background: #16a34a; color: #fff; }
+.map-marker-stamp--wish { background: #f59e0b; color: #fff; }
+.map-ep-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.map-ep-card-actions .map-play-button { margin-top: 0; }
+.map-ep-page-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border: 1px solid #fbcfe8;
+  border-radius: 18px;
+  background: #fdf2f8;
+  color: #be185d;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.map-ep-page-link:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+
+/* ---------- Toast 浮動提示 ---------- */
+.toast-notice {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24px + var(--dock-h, 0px));
+  transform: translate(-50%, 16px);
+  z-index: 90;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.92);
+  color: #fff;
+  font-size: 0.84rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  max-width: min(92vw, 520px);
+  text-align: center;
+}
+.toast-notice.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 780px) {
+  .unit-filter-group, .stamp-filter-group {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  .unit-filter-group::-webkit-scrollbar, .stamp-filter-group::-webkit-scrollbar { display: none; }
+  .filter-chip { flex: none; }
+}
