@@ -55,5 +55,6 @@ const mapLocationCoordinates = [
   { key: "和菓子村上 長町店", lat: 36.56401, lng: 136.6498057, region: "kanazawa", approximate: false, food: true },
   { key: "サンシャイン水族館", lat: 35.72917, lng: 139.71981, region: "kanto", approximate: false, food: false },
   { key: "ナンジャタウン", lat: 35.72861, lng: 139.72, region: "kanto", approximate: false, food: false },
-  { key: "ナンジャ餃子スタジアム", lat: 35.72861, lng: 139.72, region: "kanto", approximate: false, food: true }
+  { key: "ナンジャ餃子スタジアム", lat: 35.72861, lng: 139.72, region: "kanto", approximate: false, food: true },
+  { key: "東京ドイツ村", lat: 35.40556, lng: 140.05944, region: "kanto", approximate: false, food: true }
 ];

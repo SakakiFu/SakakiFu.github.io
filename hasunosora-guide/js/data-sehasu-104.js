@@ -753,11 +753,10 @@ const sehasu104Data = [
   {
     "id": "ep23",
     "epNum": "EP 23",
-    "title": "特別編 〜103期ご褒美まったり旅〜ちょい見せ",
-    "cast": "蓮ノ空（103期 6名）",
-    "videoId": "",
+    "title": "特別編！〜103期ご褒美まったり旅〜をちょい見せ！",
+    "cast": "103期（花宮初奈 ＆ 佐々木琴子 ＆ 月音こな ＆ 楡井希実 ＆ 野中ここな ＆ 菅叶和）",
+    "videoId": "ND81YrBGUqI",
     "isRestaurant": false,
-    "placeholder": true,
     "locations": [
       {
         "name": "東京ドイツ村（千葉）",
@@ -765,9 +764,45 @@ const sehasu104Data = [
       }
     ],
     "foods": [
-      "BBQ（食材為小遊戲獎勵）"
+      "BBQ"
     ],
-    "timeline": []
+    "timeline": [
+      {
+        "time": "00:41",
+        "text": "開場：103期6人登場，說明本次是「ご褒美まったり6人旅」企劃。",
+        "confidence": "high"
+      },
+      {
+        "time": "01:21",
+        "text": "說明這次是 1st Live Tour Blu-ray Memorial BOX 的特典映像，要在東京ドイツ村玩一整天，最後做 BBQ。",
+        "confidence": "medium"
+      },
+      {
+        "time": "01:40",
+        "text": "唯一規則：最後 BBQ 的食材要在德國村遊玩途中用小遊戲贏得，成功幾個挑戰就能選幾種食材。",
+        "confidence": "high"
+      },
+      {
+        "time": "02:32",
+        "text": "追加可選的食材是野菜套組，月音こな說不要、佐々木琴子也說不要。",
+        "confidence": "medium"
+      },
+      {
+        "time": "03:46",
+        "text": "抵達東京ドイツ村，馬上去玩。",
+        "confidence": "high"
+      },
+      {
+        "time": "06:51",
+        "text": "單車挑戰：騎單車繞一圈，1分鐘內回來就算挑戰成功。",
+        "confidence": "medium"
+      },
+      {
+        "time": "12:10",
+        "text": "BBQ 時間。",
+        "confidence": "medium"
+      }
+    ]
   },
   {
     "id": "ep24",
@@ -1045,28 +1080,116 @@ const sehasu104Data = [
     "id": "ep31",
     "epNum": "EP 31",
     "title": "学年別企画 1年生編②（10分クッキング）",
-    "cast": "整理中",
-    "videoId": "",
+    "cast": "1年生（櫻井陽菜 ＆ 葉山風花 ＆ 来栖りん）",
+    "videoId": "S4fs_p3Gp6o",
     "isRestaurant": true,
-    "placeholder": true,
     "locations": [],
     "foods": [
-      "チャーハン、しょうが焼き、玉子焼き"
+      "チャーハン",
+      "しょうが焼き",
+      "玉子焼き"
     ],
-    "timeline": []
+    "timeline": [
+      {
+        "time": "01:56",
+        "text": "開場：本次是突擊料理力檢查「10分クッキング」。",
+        "confidence": "medium"
+      },
+      {
+        "time": "02:33",
+        "text": "說明規則：一人抽一張寫著料理的卡片，限時10分鐘做完，禁止看食譜。",
+        "confidence": "high"
+      },
+      {
+        "time": "03:03",
+        "text": "抽卡結果：葉山風花抽到チャーハン、櫻井陽菜抽到しょうが焼き、來栖りん抽到玉子焼き。",
+        "confidence": "medium"
+      },
+      {
+        "time": "03:49",
+        "text": "決定挑戰順序：來栖りん先上，挑戰玉子焼き。",
+        "confidence": "medium"
+      },
+      {
+        "time": "08:12",
+        "text": "來栖りん的玉子焼き完成，展示斷面。",
+        "confidence": "medium"
+      },
+      {
+        "time": "08:38",
+        "text": "接著葉山風花挑戰チャーハン。",
+        "confidence": "medium"
+      },
+      {
+        "time": "13:09",
+        "text": "葉山風花的チャーハン完成，接著換櫻井陽菜挑戰しょうが焼き。",
+        "confidence": "medium"
+      },
+      {
+        "time": "20:37",
+        "text": "收尾：三人回顧10分料理挑戰，都說很好吃。",
+        "confidence": "medium"
+      }
+    ]
   },
   {
     "id": "ep32",
     "epNum": "EP 32",
     "title": "学年別企画 1年生編③（オリジナルランチプレート）",
-    "cast": "整理中",
-    "videoId": "",
+    "cast": "1年生（櫻井陽菜 ＆ 葉山風花 ＆ 来栖りん）",
+    "videoId": "nnii-EfLaIw",
     "isRestaurant": true,
-    "placeholder": true,
     "locations": [],
     "foods": [
-      "ハンバーグ、めった汁（金澤郷土料理）、フレンチトースト"
+      "ハンバーグ",
+      "めった汁",
+      "フレンチトースト"
     ],
-    "timeline": []
+    "timeline": [
+      {
+        "time": "01:04",
+        "text": "開場：本集企劃是做原創午餐盤，把各自的拿手菜帶來組合成104期特製午餐盤。",
+        "confidence": "medium"
+      },
+      {
+        "time": "01:24",
+        "text": "分工：葉山風花做漢堡排（想挑戰起司夾心）、櫻井陽菜做めった汁、來栖りん做法式吐司。",
+        "confidence": "high"
+      },
+      {
+        "time": "02:00",
+        "text": "先從櫻井陽菜的めった汁開始做，其他兩人幫忙切菜。",
+        "confidence": "medium"
+      },
+      {
+        "time": "06:43",
+        "text": "做漢堡排：需要雞蛋當黏合劑，開始準備材料。",
+        "confidence": "medium"
+      },
+      {
+        "time": "14:43",
+        "text": "漢堡排完成，開始做醬汁。",
+        "confidence": "medium"
+      },
+      {
+        "time": "16:19",
+        "text": "法式吐司完成，接著漢堡排也完成，三道菜齊了。",
+        "confidence": "medium"
+      },
+      {
+        "time": "16:45",
+        "text": "開動試吃：先從めった汁喝起，三人都說好吃，櫻井陽菜說是媽媽的味道。",
+        "isEating": true,
+        "foodTitle": "めった汁",
+        "confidence": "medium"
+      },
+      {
+        "time": "18:31",
+        "text": "試吃法式吐司：葉山風花說剛剛好的甜度，來栖りん得意地回「でしょ」。",
+        "isEating": true,
+        "foodTitle": "フレンチトースト",
+        "confidence": "medium"
+      }
+    ]
   }
 ];
